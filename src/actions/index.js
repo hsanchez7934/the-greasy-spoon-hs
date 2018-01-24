@@ -5,6 +5,28 @@ export const getTables = tablesArray => ({
   tablesArray
 });
 
+export const addCheck = check => ({
+  type: 'ADD_CHECK',
+  check
+});
+
+export const postCheck = (id) => dispatch => {
+  
+  const newCheck = {tableId: id};
+
+  fetch(`https://check-api.herokuapp.com/checks`, {
+    method: 'POST',
+    headers: {
+      Authorization: apiKey
+    },
+    accept: 'application/json',
+    body: JSON.stringify(newCheck)
+  })
+    .then(response => response.json())
+    .then(response => dispatch(addCheck(response)))
+    .catch(error => console.log(error));
+};
+
 export const fetchTables = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/tables`, {
     headers: {

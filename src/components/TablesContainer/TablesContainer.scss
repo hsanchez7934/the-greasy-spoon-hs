@@ -1,0 +1,12 @@
+@import "../../styles/colors.scss";
+
+#tables-container {
+  height: 100%;
+  width: 80%;
+  background-color: $color4;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  padding: 0px 30px;
+  overflow: scroll;
+}

@@ -6,7 +6,7 @@ import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 class App extends Component {
 
   componentDidMount() {
-    // this.getTables();
+    this.getTables();
 
     // const newCheck = {tableId: '2644ece3-83dd-4deb-ae02-54f4df083e16'};
     // fetch(`https://check-api.herokuapp.com/checks`, {
@@ -60,7 +60,8 @@ class App extends Component {
 // {id: "f58948c7-9feb-44ea-b0cc-9013406b9a51", name: "COOKIES & MILK", price: 5}
 
   getTables = () => {
-    fetch(`https://check-api.herokuapp.com/checks/d8d66715-c799-4732-b2c1-8d1b79590a6d`, {
+    fetch(`https://check-api.herokuapp.com/checks`, {
+      method: 'DELETE',
       headers: {
         Authorization: apiKey
       }
