@@ -40,6 +40,7 @@
       width: 50%;
       font-size: 1.5em;
       color: $color3;
+      text-decoration: none;
     }
     li:hover {
       cursor: pointer;
@@ -47,4 +48,8 @@
     }
   }
   }
+}
+#container2 {
+ width: 80%;
+ height: 100%;
 }

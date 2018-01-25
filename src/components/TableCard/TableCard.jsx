@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './TableCard.css';
 import { fetchTables } from '../../actions';
 import { connect } from 'react-redux';
-import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class TableCard extends Component {

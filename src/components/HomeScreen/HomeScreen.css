@@ -32,7 +32,12 @@
         text-align: center;
         width: 50%;
         font-size: 1.5em;
-        color: #00C5D0; }
+        color: #00C5D0;
+        text-decoration: none; }
       #sidebar-container #links-container ul li:hover {
         cursor: pointer;
         color: #FFD306; }
+
+#container2 {
+  width: 80%;
+  height: 100%; }
