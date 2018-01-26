@@ -25,6 +25,23 @@ export const addItemToCheck = item => ({
   item
 });
 
+export const putCheckItemVoid = (id, itemID) => dispatch => {
+  
+  const itemToVoid = {orderedItemId: itemID};
+
+  fetch(`https://check-api.herokuapp.com/checks/${id}/voidItem`, {
+    method: 'PUT',
+    headers: {
+      Authorization: apiKey
+    },
+    accept: 'application/json',
+    body: JSON.stringify(itemToVoid)
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+};
+
 export const putItemToCheck = (id, itemID) => dispatch => {
 
   const newItem = {itemId: itemID};

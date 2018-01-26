@@ -10,29 +10,43 @@ export default class OpenCheck extends Component {
   constructor() {
     super();
     this.state = {
-      orderedItems: []
+      orderedItem: [],
+      orderedItems: [],
+      voidedItems: []
     };
-    // this.renderListItems = this.renderListItems.bind(this);
   }
 
-  // renderListItems = () => {
-  //   setTimeout(() => {
-  //     this.setState({
-  //       orderedItems: this.props.storedCheck.orderedItems
-  //     });
-  //   }, 5000);
-  // };
+  voidedButtonOnClick = (id, itemID, item) => {
+    let array = [];
+    putCheckItemVoid(id, itemID);
+    array.push(item)
+  }
+
+  addButtonOnClick = (id, itemID, item) => {
+    let array = [];
+    this.props.putItemToCheck(id, itemID);
+    this.props.fetchCheckById(id);
+    array.push(item);
+    this.setState({
+      orderedItem: array
+    });
+    setTimeout(() => {
+      this.setState({
+        orderedItems: this.props.storedCheck.orderedItems
+      });
+    }, 2500);
+  }
 
   findName = (id) => {
-    let name;
+    let item;
     const filteredItem = this.props.items.filter( item => item.id === id);
-    name = filteredItem[0].name;
-    return name;
+    item = filteredItem[0];
+    return item;
   };
 
   render() {
 
-    const { table, check, items, putItemToCheck, storedCheck } = this.props;
+    const { table, check, items, putItemToCheck, storedCheck, putCheckItemVoid } = this.props;
 
     if (!table || !check || !items) {
       return (
@@ -47,15 +61,33 @@ export default class OpenCheck extends Component {
 
             <section className='ordered-items'>
               <p className='oitems-title'>Ordered Items</p>
-              <ul className='items-ul'>
+              <ul className='items-ul added-item'>
                 {
-                  this.state.orderedItems.map( (item, index) =>
-                    <li key={index} className='items-list-styles'>
-                      {this.findName(item.itemId)}
+                  this.state.orderedItem.map( (item, index) =>
+                    <li
+                      key={index}
+                      className='items-list-styles last-item-added'>
+                      Added: {item.name}
                       <span className='ls-span'>
                         {item.price}
                       </span>
-                      <button className='list-buttons'>VOID ITEM</button>
+                    </li>
+                  )
+                }
+              </ul>
+              <ul className='items-ul added-items'>
+                {
+                  this.state.orderedItems.map( (item, index) =>
+                    <li key={index} className='items-list-styles'>
+                      {this.findName(item.itemId).name}
+                      <span className='ls-span'>
+                        {this.findName(item.itemId).price}
+                      </span>
+                      <button
+                        className='list-buttons'
+                        onClick={() => this.voidedButtonOnClick(check.id, item.id, item)}>
+                        VOID ITEM
+                      </button>
                     </li>
                   )
                 }
@@ -64,7 +96,7 @@ export default class OpenCheck extends Component {
 
             <section className='items-list'>
               <p className='oitems-title'>Menu Items</p>
-              <ul className='items-ul'>
+              <ul className='items-ul menu-items'>
                 {
                   items.map( (item, index) =>
                     <li
@@ -77,12 +109,7 @@ export default class OpenCheck extends Component {
                       </span>
                       <button
                         className='list-buttons'
-                        onClick={() => {
-                          this.props.putItemToCheck(check.id, item.id);
-                          this.props.fetchCheckById(check.id);
-                          // this.renderListItems();
-                        }
-                      }>
+                        onClick={() => this.addButtonOnClick(check.id, item.id, item)}>
                         ADD ITEM
                       </button>
                     </li>

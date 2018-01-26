@@ -6,7 +6,7 @@ import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 class App extends Component {
 
   componentDidMount() {
-    this.getTables();
+    // this.getTables();
       // this.getChecks();
     // const newCheck = {tableId: 'e3249558-e083-4656-8644-1fb7cd706b56'};
     // fetch(`https://check-api.herokuapp.com/checks`, {

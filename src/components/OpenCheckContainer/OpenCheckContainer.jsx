@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './OpenCheckContainer.css';
-import { fetchItems, fetchTables, putItemToCheck, fetchCheckById } from '../../actions';
+import { fetchItems, fetchTables, putItemToCheck, fetchCheckById, putCheckItemVoid } from '../../actions';
 import { connect } from 'react-redux';
 import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -21,11 +21,11 @@ class OpenCheckContainer extends Component {
       items={this.props.items}
       putItemToCheck={this.props.putItemToCheck}
       storedCheck={this.props.storedCheck}
-      fetchCheckById={this.props.fetchCheckById} />;
+      fetchCheckById={this.props.fetchCheckById}
+      putCheckItemVoid={this.props.putCheckItemVoid} />;
   }
 
   render() {
-    console.log(this.props.storedCheck.orderedItems);
     return (
       <section id='opencheck-container'>
         {
@@ -56,7 +56,8 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   fetchItems: () => dispatch(fetchItems()),
   putItemToCheck: (id, itemID) => dispatch(putItemToCheck(id, itemID)),
-  fetchCheckById: (id) => dispatch(fetchCheckById(id))
+  fetchCheckById: (id) => dispatch(fetchCheckById(id)),
+  putCheckItemVoid: (id, itemID) => dispatch(putCheckItemVoid(id, itemID))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OpenCheckContainer);
