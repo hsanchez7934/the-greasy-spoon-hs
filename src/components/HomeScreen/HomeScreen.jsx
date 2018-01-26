@@ -3,7 +3,7 @@ import './HomeScreen.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import SideBar from '../SideBar/SideBar.jsx';
 import TablesContainer from '../TablesContainer/TablesContainer.jsx';
-import OpenCheck from '../OpenCheck/OpenCheck.jsx';
+import OpenCheckContainer from '../OpenCheckContainer/OpenCheckContainer.jsx';
 
 const routes = [
   {
@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: '/opencheck',
-    main: () => <OpenCheck />
+    main: () => <OpenCheckContainer />
   }
 ];
 

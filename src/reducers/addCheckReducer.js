@@ -1,4 +1,4 @@
-const addCheckReducer = (state = {}, action) => {
+const addedCheckReducer = (state = {}, action) => {
   switch (action.type) {
   case 'ADD_CHECK':
     return action.check;
@@ -7,4 +7,4 @@ const addCheckReducer = (state = {}, action) => {
   }
 };
 
-export default addCheckReducer;
+export default addedCheckReducer;

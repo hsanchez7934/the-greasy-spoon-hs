@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TablesContainer.css';
-import { fetchTables, postCheck } from '../../actions';
+import { fetchTables, postCheck, fetchCheckById } from '../../actions';
 import { connect } from 'react-redux';
 import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -37,8 +37,7 @@ TablesContainer.propTypes = {
 };
 
 const mapStateToProps = store => ({
-  tables: store.tables,
-  check: store.addCheckReducer
+  tables: store.tables
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -15,6 +15,45 @@ export const getItems = itemsArray => ({
   itemsArray
 });
 
+export const checkById = check => ({
+  type: 'GET_CHECK_BY_ID',
+  check
+});
+
+export const addItemToCheck = item => ({
+  type: 'PUT_ITEM',
+  item
+});
+
+export const putItemToCheck = (id, itemID) => dispatch => {
+
+  const newItem = {itemId: itemID};
+
+  fetch(`https://check-api.herokuapp.com/checks/${id}/addItem`, {
+    method: 'PUT',
+    headers: {
+      Authorization: apiKey
+    },
+    accept: 'application/json',
+    body: JSON.stringify(newItem)
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+};
+
+export const fetchCheckById = (id) => dispatch => {
+
+  fetch(`https://check-api.herokuapp.com/checks/${id}`, {
+    headers: {
+      Authorization: apiKey
+    }
+  })
+    .then(response => response.json())
+    .then(response => dispatch(checkById(response)))
+    .catch(error => console.log(error));
+};
+
 export const postCheck = (id) => dispatch => {
 
   const newCheck = {tableId: id};

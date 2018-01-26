@@ -1,7 +1,7 @@
 #homescreen-container {
   height: 100%;
   width: 100%;
-  background-color: blue;
+  background-color: #EDECED;
   display: flex; }
 
 #sidebar-container {

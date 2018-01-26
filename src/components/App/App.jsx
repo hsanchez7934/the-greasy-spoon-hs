@@ -6,9 +6,9 @@ import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 class App extends Component {
 
   componentDidMount() {
-    // this.getTables();
-
-    // const newCheck = {tableId: '2644ece3-83dd-4deb-ae02-54f4df083e16'};
+    this.getTables();
+      // this.getChecks();
+    // const newCheck = {tableId: 'e3249558-e083-4656-8644-1fb7cd706b56'};
     // fetch(`https://check-api.herokuapp.com/checks`, {
     //   method: 'POST',
     //   headers: {
@@ -69,7 +69,18 @@ class App extends Component {
       .then(response => response.json())
       .then(response => console.log(response))
       .catch(error => console.log(error));
-  }
+  };
+
+  getChecks = () => {
+    fetch(`https://check-api.herokuapp.com/checks/e3249558-e083-4656-8644-1fb7cd706b56`, {
+      headers: {
+        Authorization: apiKey
+      }
+    })
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+  };
 
   render() {
     return (
