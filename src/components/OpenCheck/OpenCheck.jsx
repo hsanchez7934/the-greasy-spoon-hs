@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './OpenCheck.css';
-// import { fetchItems } from '../../actions';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,47 +9,122 @@ export default class OpenCheck extends Component {
   constructor() {
     super();
     this.state = {
-      orderedItem: [],
-      orderedItems: [],
-      voidedItems: []
+      orderedItems: []
     };
   }
 
-  voidedButtonOnClick = (id, itemID, item) => {
-    let array = [];
-    putCheckItemVoid(id, itemID);
-    array.push(item)
-  }
-
-  addButtonOnClick = (id, itemID, item) => {
-    let array = [];
-    this.props.putItemToCheck(id, itemID);
-    this.props.fetchCheckById(id);
-    array.push(item);
-    this.setState({
-      orderedItem: array
-    });
+  voidButtonOnClick = (id, itemID) => {
+    this.props.putCheckItemVoid(id, itemID);
     setTimeout(() => {
       this.setState({
         orderedItems: this.props.storedCheck.orderedItems
       });
-    }, 2500);
+    }, 400);
   }
 
-  findName = (id) => {
-    let item;
+  addButtonOnClick = (id, itemID) => {
+    this.props.putItemToCheck(id, itemID);
+    setTimeout(() => {
+      this.setState({
+        orderedItems: this.props.storedCheck.orderedItems
+      });
+    }, 400);
+  }
+
+  disableVoidButton = (item) => {
+    const { check } = this.props;
+    if (item.voided === true) {
+      return (
+        <button
+          className='list-buttons'
+          disabled>
+          VOIDED
+        </button>
+      );
+    }
+    return (
+      <button
+        className='list-buttons'
+        onClick={() => this.voidButtonOnClick(check.id, item.id, item)}>
+        VOID ITEM
+      </button>
+    );
+  }
+
+  voidedClassName = (item) => {
+    return item.voided === true
+      ? 'items-list-styles red'
+      : 'items-list-styles';
+  }
+
+  filterItem = (id) => {
     const filteredItem = this.props.items.filter( item => item.id === id);
-    item = filteredItem[0];
-    return item;
-  };
+    return filteredItem[0];
+  }
+
+  createOrderedItems = () => {
+    const { check } = this.props;
+    return this.state.orderedItems.map( (item, index) =>
+      <li key={index} className={this.voidedClassName(item)}>
+        {this.filterItem(item.itemId).name}
+        <span className='ls-span'>
+          ${this.filterItem(item.itemId).price.toFixed(2)}
+        </span>
+        {
+          this.disableVoidButton(item)
+        }
+      </li>
+    );
+  }
+
+  createMenuItems = () => {
+    const { check, items } = this.props;
+    return items.map( (item, index) =>
+      <li
+        key={index}
+        className='items-list-styles'
+        id={item.id}>
+        {item.name}
+        <span className='ls-span'>
+          ${item.price.toFixed(2)}
+        </span>
+        <button
+          className='list-buttons'
+          onClick={() => this.addButtonOnClick(check.id, item.id, item)}>
+          ADD ITEM
+        </button>
+      </li>
+    );
+  }
+
+  itemsTotal = () => {
+    if (this.props.storedCheck.orderedItems) {
+      let filtered;
+      return this.props.storedCheck.orderedItems.reduce((acc, item) => {
+        filtered = this.filterItem(item.itemId);
+        if (item.voided === false) {
+          acc += filtered.price;
+        } else if (item.voided === true) {
+          filtered.price - acc;
+        }
+        return acc;
+      }, 0);
+    }
+    return 0;
+  }
+
+  closeCheckButtonOnClick = (id) => {
+    this.props.putCheckClose(id);
+    this.props.newCheckAdded(false);
+  }
 
   render() {
-
-    const { table, check, items, putItemToCheck, storedCheck, putCheckItemVoid } = this.props;
-
+    const { table, check, items } = this.props;
     if (!table || !check || !items) {
       return (
-        <div>Not Loaded Yet</div>
+        <div>
+          SELECT A TABLE TO OPEN A CHECK
+        </div>
       );
     } else {
       return (
@@ -61,65 +135,36 @@ export default class OpenCheck extends Component {
 
             <section className='ordered-items'>
               <p className='oitems-title'>Ordered Items</p>
-              <ul className='items-ul added-item'>
-                {
-                  this.state.orderedItem.map( (item, index) =>
-                    <li
-                      key={index}
-                      className='items-list-styles last-item-added'>
-                      Added: {item.name}
-                      <span className='ls-span'>
-                        {item.price}
-                      </span>
-                    </li>
-                  )
-                }
-              </ul>
               <ul className='items-ul added-items'>
                 {
-                  this.state.orderedItems.map( (item, index) =>
-                    <li key={index} className='items-list-styles'>
-                      {this.findName(item.itemId).name}
-                      <span className='ls-span'>
-                        {this.findName(item.itemId).price}
-                      </span>
-                      <button
-                        className='list-buttons'
-                        onClick={() => this.voidedButtonOnClick(check.id, item.id, item)}>
-                        VOID ITEM
-                      </button>
-                    </li>
-                  )
+                  this.createOrderedItems()
                 }
               </ul>
+              <p className='customer-total'>
+                Total: $
+                {
+                  this.itemsTotal().toFixed(2)
+                }
+              </p>
             </section>
 
             <section className='items-list'>
               <p className='oitems-title'>Menu Items</p>
               <ul className='items-ul menu-items'>
                 {
-                  items.map( (item, index) =>
-                    <li
-                      key={index}
-                      className='items-list-styles'
-                      id={item.id}>
-                      {item.name}
-                      <span className='ls-span'>
-                        {item.price}
-                      </span>
-                      <button
-                        className='list-buttons'
-                        onClick={() => this.addButtonOnClick(check.id, item.id, item)}>
-                        ADD ITEM
-                      </button>
-                    </li>
-                  )
+                  this.createMenuItems()
                 }
               </ul>
             </section>
 
           </div>
-
+          <div className='close-check-button-container'>
+            <button
+              className='close-check-button'
+              onClick={() => this.closeCheckButtonOnClick(check.id)}>
+              CLOSE CHECK
+            </button>
+          </div>
         </article>
       );
     }
@@ -127,5 +172,13 @@ export default class OpenCheck extends Component {
 }
 
 OpenCheck.propTypes ={
-
+  table: PropTypes.object,
+  check: PropTypes.object,
+  items: PropTypes.array,
+  putItemToCheck: PropTypes.func,
+  storedCheck: PropTypes.object,
+  fetchCheckById: PropTypes.func,
+  putCheckItemVoid: PropTypes.func,
+  putCheckClose: PropTypes.func,
+  newCheckAdded: PropTypes.func
 };

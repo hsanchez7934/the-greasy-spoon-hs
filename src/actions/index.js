@@ -25,8 +25,29 @@ export const addItemToCheck = item => ({
   item
 });
 
+export const closedCheck = check => ({
+  type: 'CLOSE_CHECK',
+  check
+});
+
+export const putCheckClose = (id) => dispatch => {
+  fetch(`https://check-api.herokuapp.com/checks/${id}/close`, {
+    method: 'PUT',
+    headers: {
+      Authorization: apiKey
+    },
+    accept: 'application/json',
+    body: {}
+  })
+    .then(response => response.json())
+    .then(response => {
+      dispatch(closedCheck(response));
+      dispatch(fetchCheckById(id));
+    })
+    .catch(error => error);
+};
+
 export const putCheckItemVoid = (id, itemID) => dispatch => {
-  
   const itemToVoid = {orderedItemId: itemID};
 
   fetch(`https://check-api.herokuapp.com/checks/${id}/voidItem`, {
@@ -38,7 +59,8 @@ export const putCheckItemVoid = (id, itemID) => dispatch => {
     body: JSON.stringify(itemToVoid)
   })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => response)
+    .then(() => dispatch(fetchCheckById(id)))
     .catch(error => console.log(error));
 };
 
@@ -55,12 +77,12 @@ export const putItemToCheck = (id, itemID) => dispatch => {
     body: JSON.stringify(newItem)
   })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => response)
+    .then(() => dispatch(fetchCheckById(id)))
     .catch(error => console.log(error));
 };
 
 export const fetchCheckById = (id) => dispatch => {
-
   fetch(`https://check-api.herokuapp.com/checks/${id}`, {
     headers: {
       Authorization: apiKey

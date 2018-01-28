@@ -5,6 +5,7 @@ import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 
 class App extends Component {
 
+
   componentDidMount() {
     // this.getTables();
       // this.getChecks();
@@ -72,7 +73,7 @@ class App extends Component {
   };
 
   getChecks = () => {
-    fetch(`https://check-api.herokuapp.com/checks/e3249558-e083-4656-8644-1fb7cd706b56`, {
+    fetch(`https://check-api.herokuapp.com/checks/1e6df0a0-50b7-46a0-968a-961bab96a0ae`, {
       headers: {
         Authorization: apiKey
       }
