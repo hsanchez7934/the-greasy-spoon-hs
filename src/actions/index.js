@@ -10,11 +10,6 @@ export const getTables = tablesArray => ({
   tablesArray
 });
 
-export const addCheck = check => ({
-  type: 'ADD_CHECK',
-  check
-});
-
 export const getItems = itemsArray => ({
   type: 'GET_ITEMS',
   itemsArray
@@ -30,6 +25,7 @@ export const addItemToCheck = item => ({
   item
 });
 
+//MIGHT NOT BE USING THIS ACTION CREATOR
 export const closedCheck = check => ({
   type: 'CLOSE_CHECK',
   check
@@ -66,7 +62,7 @@ export const putCheckItemVoid = (id, itemID) => dispatch => {
     .then(response => response.json())
     .then(response => response)
     .then(() => dispatch(fetchCheckById(id)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
 export const putItemToCheck = (id, itemID) => dispatch => {
@@ -84,7 +80,7 @@ export const putItemToCheck = (id, itemID) => dispatch => {
     .then(response => response.json())
     .then(response => response)
     .then(() => dispatch(fetchCheckById(id)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
 export const fetchCheckById = (id) => dispatch => {
@@ -95,7 +91,7 @@ export const fetchCheckById = (id) => dispatch => {
   })
     .then(response => response.json())
     .then(response => dispatch(checkById(response)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
 export const postCheck = (id) => dispatch => {
@@ -112,9 +108,10 @@ export const postCheck = (id) => dispatch => {
   })
     .then(response => response.json())
     .then(response => dispatch(fetchCheckById(response.id)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
+//THESE THREE FUNCTIONS ARE EXACTLY ALIKE, THINK OF REFACTORING
 export const fetchTables = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/tables`, {
     headers: {
@@ -123,7 +120,7 @@ export const fetchTables = () => dispatch => {
   })
     .then(response => response.json())
     .then(response => dispatch(getTables(response)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
 export const fetchItems = () => dispatch => {
@@ -134,7 +131,7 @@ export const fetchItems = () => dispatch => {
   })
     .then(response => response.json())
     .then(response => dispatch(getItems(response)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
 
 export const fetchChecks = () => dispatch => {
@@ -145,5 +142,5 @@ export const fetchChecks = () => dispatch => {
   })
     .then(response => response.json())
     .then(response => dispatch(getChecks(response)))
-    .catch(error => console.log(error));
+    .catch(error => error);
 };
