@@ -13,7 +13,7 @@ Run npm run build
 
 Run npm start
 
-Create a .env folder where you'll store your API key to use the backend.
+Create a .env folder in the root of the directory. Store your API key inside of the folder to use the backend.
 Save the key to variable REACT_APP_API_KEY
 
 Thats it!
