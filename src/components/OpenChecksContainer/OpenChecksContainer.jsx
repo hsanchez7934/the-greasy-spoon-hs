@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './OpenChecksContainer.css';
-import { fetchItems, fetchTables, putItemToCheck, fetchCheckById, putCheckItemVoid, putCheckClose, fetchChecks } from '../../actions';
+import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import OpenCheck from '../OpenCheck/OpenCheck.jsx';
 import moment from 'moment';
 
@@ -17,7 +17,7 @@ class OpenChecksContainer extends Component {
   findTable = (tableID) => {
     const table = this.props.tables.filter( table =>
       table.id === tableID);
-      return table[0];
+    return table[0];
   }
 
   formatDate = (date) => {
@@ -30,8 +30,12 @@ class OpenChecksContainer extends Component {
       if (check.closed === false ) {
         return <article key={index} id={check.id} className='open-checks'>
           <div className='open-check-top'>
-            <p className='open-check-date'>{this.formatDate(check.dateCreated)}</p>
-            <h1 className='open-check-table-number'>Table {this.findTable(check.tableId).number}</h1>
+            <p className='open-check-date'>
+              {this.formatDate(check.dateCreated)}
+            </p>
+            <h1 className='open-check-table-number'>
+              Table {this.findTable(check.tableId).number}
+            </h1>
           </div>
           <div className='open-check-bottom'>
             <Link to='/currentcheck' className='see-details-button-link-tag'>
@@ -52,7 +56,6 @@ class OpenChecksContainer extends Component {
   }
 
   render() {
-    console.log(this.props.checks);
     if (this.queryForOpenChecks().length === 0) {
       return (
         <section id='openchecks-container'>
@@ -70,6 +73,14 @@ class OpenChecksContainer extends Component {
     }
   }
 }
+
+OpenChecksContainer.propTypes = {
+  fetchChecks: PropTypes.func,
+  fetchTables: PropTypes.func,
+  tables: PropTypes.array,
+  checks: PropTypes.array,
+  fetchCheckById: PropTypes.func
+};
 
 const mapStateToProps = store => ({
   checks: store.checks,

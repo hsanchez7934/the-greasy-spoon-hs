@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './OpenCheck.css';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class OpenCheck extends Component {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './TableCard.css';
-import { fetchTables } from '../../actions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class TableCard extends Component {
@@ -12,7 +11,7 @@ export default class TableCard extends Component {
     for (let i = 0; i < this.props.openChecks.length; i++) {
       check = this.props.openChecks[i];
       if (check.tableId === id) {
-          return <p className='open-check-warning'>CHECK OPENED</p>
+        return <p className='open-check-warning'>CHECK OPENED</p>
       }
     }
     return <Link to='/currentcheck' className='open-check-button-link-tag'>
@@ -21,11 +20,10 @@ export default class TableCard extends Component {
         className='open-check-button'>
         Open Check
       </button>
-    </Link>
+    </Link>;
   }
 
   render() {
-    console.log(this.props.openChecks);
     const { table, postCheck, openChecks } = this.props;
     return (
       <article className='table-card' id={table.id}>
