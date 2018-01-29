@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3001);
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.locals.title = 'WEATHRLY';
+app.locals.title = 'GREASY-SPOON';
 
 app.get(process.env.REACT_APP_API_KEY);
 
