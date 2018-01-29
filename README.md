@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Hello
-=======
 The Greasy Spoon
 
 To run locally:
