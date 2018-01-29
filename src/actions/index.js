@@ -136,3 +136,15 @@ export const fetchChecks = () => dispatch => {
     .then(response => dispatch(getChecks(response)))
     .catch(error => error);
 };
+
+export const deleteAllChecks = () => dispatch => {
+  fetch(`https://check-api.herokuapp.com/checks`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: apiKey
+    }
+  })
+    .then(response => response.json())
+    .then(response => response)
+    .catch(error => error);
+};
