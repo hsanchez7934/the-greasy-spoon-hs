@@ -1,4 +1,81 @@
+@import "../../styles/colors.scss";
+
 #homepage-container {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/image1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+#homepage-information-container {
+  border: 1px solid $color5;
+  height: 80%;
+  width: 80%;
+}
+
+#homepage-title {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3em;
+  color: $color4;
+  border-bottom: 1px solid $color6;
+  width: 70%;
+  height: 5%;
+  padding: 30px;
+}
+
+#homepage-welcome {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2.5em;
+  color: $color4;
+  height: 5%;
+  padding: 30px;
+}
+
+#homepage-text {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5em;
+  color: $color6;
+  width: 80%;
+  height: 30%;
+  padding: 30px;
+}
+
+#get-started-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+#get-started-button-link-tag {
+  height: 40%;
+  width: 30%;
+}
+
+#get-started-button {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  border: 1px solid $color5;
+  background-color: $color1;
+  color: $color6;
+}
+
+#get-started-button:focus {
+  outline: inherit;
+}
+
+#get-started-button:hover {
+  background-color: $color5;
+  cursor: pointer;
+  color: $color1;
 }

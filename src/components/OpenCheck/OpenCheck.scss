@@ -3,7 +3,12 @@
 .opencheck-card {
   width: 90%;
   height: 90%;
-  background-color: $color5;
+  border-radius: 30px 30px 30px 30px;
+  -moz-border-radius: 30px 30px 30px 30px;
+  -webkit-box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  background: linear-gradient(0deg, $color1, $color3 50%, $color1);
   padding: 30px 0px;
   .title-table {
     width: 100%;
@@ -13,6 +18,7 @@
     font-size: 3em;
     font-weight: lighter;
     padding-top: 10px;
+    color: $color5;
   }
   .open-check-title {
     padding-top: 10px;
@@ -22,7 +28,9 @@
     margin: 0;
     font-size: 2em;
     font-weight: lighter;
+    color: $color5;
   }
+
   .items-container {
     height: 70%;
     width: 100%;
@@ -51,10 +59,10 @@
 
 .items-list-styles {
   list-style: none;
-  // background-color: pink;
   width: 100%;
   margin: 20px 0px 20px 0px;
   font-size: 1.5em;
+  color: $color6;
 }
 
 .items-ul {
@@ -81,11 +89,12 @@
   height: 28px;
   border: 0;
   background-color: $color4;
+  color: $color6;
 }
 
 .list-buttons:disabled {
   background-color: red;
-  color: $color4;
+  color: $color6;
 }
 
 .list-buttons:disabled:hover {
@@ -95,9 +104,9 @@
 }
 
 .list-buttons:hover {
-  background-color: $color3;
+  background-color: $color6;
   cursor: pointer;
-  color: $color4;
+  color: $color1;
 }
 
 .list-buttons:focus {
@@ -119,6 +128,7 @@
   text-align: center;
   font-size: 2em;
   padding-top: 20px;
+  color: $color6;
 }
 
 .close-check-button-container {
@@ -135,12 +145,15 @@
   width: 100%;
   font-size: 1.5em;
   margin: 10px auto;
+  background-color: $color4;
+  border: 0px;
+  color: $color6;
 }
 
 .save-check-button:hover {
-  background-color: $color3;
+  background-color: $color6;
   cursor: pointer;
-  color: $color4;
+  color: $color1;
 }
 
 .save-check-button:focus {
@@ -151,12 +164,15 @@
   height: 35%;
   width: 25%;
   font-size: 1.5em;
+  background-color: $color4;
+  border: 0px;
+  color: $color6;
 }
 
 .close-check-button:hover {
-  background-color: $color3;
+  background-color: $color6;
   cursor: pointer;
-  color: $color4;
+  color: $color1;
 }
 
 .close-check-button:focus {

@@ -6,4 +6,65 @@
   background-color: $color5;
   margin: 50px 1px 50px 1px;
   flex-basis: auto;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 37px 5px rgba(0,0,0,0.75);
+  background: linear-gradient(0deg, $color1, $color3 50%, $color1);
+}
+
+.table-card-top {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-card-bottom {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-card-table-number {
+  margin: 0;
+  color: $color5;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 2em;
+}
+
+a.open-check-button-link-tag {
+  height: 30%;
+  width: 40%;
+}
+
+.open-check-button {
+  height: 100%;
+  width: 100%;
+  background-color: $color4;
+  border: 0px;
+  color: $color6;
+  font-size: 1.2em;
+}
+
+.open-check-button:focus {
+  outline: none;
+}
+
+.open-check-button:hover {
+  background-color: $color5;
+  cursor: pointer;
+  color: $color1;
+}
+
+.open-check-warning {
+  margin: 0;
+  font-size: 2em;
+  color: red;
 }

@@ -12,8 +12,8 @@ export default class ClosedCheck extends Component {
 
   voidedClassName = (item) => {
     return item.voided === true
-      ? 'items-list-styles red'
-      : 'items-list-styles';
+      ? 'closed-items-list-styles red'
+      : 'closed-items-list-styles';
   }
 
   itemsTotal = () => {
@@ -35,12 +35,9 @@ export default class ClosedCheck extends Component {
   disableVoidButton = (item) => {
     if (item.voided === true) {
       return (
-        <p>Voided</p>
+        <p className='closed-voided-item'>Voided</p>
       );
     }
-    return (
-      <p>Good</p>
-    );
   }
 
   finalTotal = () => {

@@ -1,7 +1,12 @@
 .opencheck-card {
   width: 90%;
   height: 90%;
-  background-color: #b3cde0;
+  border-radius: 30px 30px 30px 30px;
+  -moz-border-radius: 30px 30px 30px 30px;
+  -webkit-box-shadow: 0px 10px 37px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 37px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 37px 5px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(0deg, #011f4b, #005b96 50%, #011f4b);
   padding: 30px 0px; }
   .opencheck-card .title-table {
     width: 100%;
@@ -10,7 +15,8 @@
     margin: 0;
     font-size: 3em;
     font-weight: lighter;
-    padding-top: 10px; }
+    padding-top: 10px;
+    color: #b3cde0; }
   .opencheck-card .open-check-title {
     padding-top: 10px;
     width: 100%;
@@ -18,7 +24,8 @@
     text-align: center;
     margin: 0;
     font-size: 2em;
-    font-weight: lighter; }
+    font-weight: lighter;
+    color: #b3cde0; }
   .opencheck-card .items-container {
     height: 70%;
     width: 100%;
@@ -43,7 +50,8 @@
   list-style: none;
   width: 100%;
   margin: 20px 0px 20px 0px;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  color: #F7F7F5; }
 
 .items-ul {
   width: 80%;
@@ -65,11 +73,12 @@
   width: 20%;
   height: 28px;
   border: 0;
-  background-color: #6497b1; }
+  background-color: #6497b1;
+  color: #F7F7F5; }
 
 .list-buttons:disabled {
   background-color: red;
-  color: #6497b1; }
+  color: #F7F7F5; }
 
 .list-buttons:disabled:hover {
   background-color: red;
@@ -77,9 +86,9 @@
   cursor: not-allowed; }
 
 .list-buttons:hover {
-  background-color: #005b96;
+  background-color: #F7F7F5;
   cursor: pointer;
-  color: #6497b1; }
+  color: #011f4b; }
 
 .list-buttons:focus {
   outline: none; }
@@ -96,7 +105,8 @@
   width: 50%;
   text-align: center;
   font-size: 2em;
-  padding-top: 20px; }
+  padding-top: 20px;
+  color: #F7F7F5; }
 
 .close-check-button-container {
   height: 20%;
@@ -110,12 +120,15 @@
   height: 100%;
   width: 100%;
   font-size: 1.5em;
-  margin: 10px auto; }
+  margin: 10px auto;
+  background-color: #6497b1;
+  border: 0px;
+  color: #F7F7F5; }
 
 .save-check-button:hover {
-  background-color: #005b96;
+  background-color: #F7F7F5;
   cursor: pointer;
-  color: #6497b1; }
+  color: #011f4b; }
 
 .save-check-button:focus {
   outline: none; }
@@ -123,12 +136,15 @@
 .close-check-button {
   height: 35%;
   width: 25%;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  background-color: #6497b1;
+  border: 0px;
+  color: #F7F7F5; }
 
 .close-check-button:hover {
-  background-color: #005b96;
+  background-color: #F7F7F5;
   cursor: pointer;
-  color: #6497b1; }
+  color: #011f4b; }
 
 .close-check-button:focus {
   outline: none; }

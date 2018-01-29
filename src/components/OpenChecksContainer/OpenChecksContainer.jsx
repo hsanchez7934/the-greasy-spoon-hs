@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import OpenCheck from '../OpenCheck/OpenCheck.jsx';
+import moment from 'moment';
 
 class OpenChecksContainer extends Component {
 
@@ -19,17 +20,28 @@ class OpenChecksContainer extends Component {
       return table[0];
   }
 
+  formatDate = (date) => {
+    const newDate = moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    return newDate;
+  }
+
   createOpenTablesCard = () => {
     return this.props.checks.map( (check, index) => {
       if (check.closed === false ) {
-        return <article key={index} id={check.id}>
-          <h1>Table {this.findTable(check.tableId).number}</h1>
-          <Link to='/currentcheck'>
-            <button
-              onClick={() => this.props.fetchCheckById(check.id)}>
-              See Details
-            </button>
-          </Link>
+        return <article key={index} id={check.id} className='closed-checks'>
+          <div className='open-check-top'>
+            <p className='open-check-date'>{this.formatDate(check.dateCreated)}</p>
+            <h1 className='open-check-table-number'>Table {this.findTable(check.tableId).number}</h1>
+          </div>
+          <div className='open-check-bottom'>
+            <Link to='/currentcheck' className='see-details-button-link-tag'>
+              <button
+                onClick={() => this.props.fetchCheckById(check.id)}
+                className='see-details-button'>
+                See Details
+              </button>
+            </Link>
+          </div>
         </article>;
       }
     });
@@ -44,7 +56,7 @@ class OpenChecksContainer extends Component {
     if (this.queryForOpenChecks().length === 0) {
       return (
         <section id='openchecks-container'>
-          NO OPEN CHECKS
+          <p className='no-open-checks-warning'>NO OPEN CHECKS</p>
         </section>
       );
     } else {

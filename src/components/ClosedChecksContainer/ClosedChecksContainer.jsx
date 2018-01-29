@@ -28,15 +28,20 @@ class ClosedChecksContainer extends Component {
   createClosedTablesCard = () => {
     return this.props.checks.map( (check, index) => {
       if (check.closed === true ) {
-        return <article key={index} id={check.id}>
-          <p>{this.formatDate(check.dateCreated)}</p>
-          <h1>Table {this.findTable(check.tableId).number}</h1>
-          <Link to='/currentcheck'>
-            <button
-              onClick={() => this.props.fetchCheckById(check.id)}>
-              See Details
-            </button>
-          </Link>
+        return <article key={index} id={check.id} className='closed-checks'>
+          <div className='closed-check-top'>
+            <p className='closed-check-date'>{this.formatDate(check.dateCreated)}</p>
+            <h1 className='closed-check-table-number'>Table {this.findTable(check.tableId).number}</h1>
+          </div>
+          <div className='closed-check-bottom'>
+            <Link to='/currentcheck' className='see-details-button-link-tag'>
+              <button
+                onClick={() => this.props.fetchCheckById(check.id)}
+                className='see-details-button'>
+                See Details
+              </button>
+            </Link>
+          </div>
         </article>;
       }
     });
@@ -51,7 +56,7 @@ class ClosedChecksContainer extends Component {
     if (this.queryForClosedChecks().length === 0) {
       return (
         <section id='closedchecks-container'>
-          NO CLOSED CHECKS
+          <p className='no-closed-checks-warning'>NO CLOSED CHECKS</p>
         </section>
       );
     } else {

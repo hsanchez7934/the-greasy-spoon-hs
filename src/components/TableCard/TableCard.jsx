@@ -12,12 +12,13 @@ export default class TableCard extends Component {
     for (let i = 0; i < this.props.openChecks.length; i++) {
       check = this.props.openChecks[i];
       if (check.tableId === id) {
-          return <p>OPEN CHECK</p>
+          return <p className='open-check-warning'>CHECK OPENED</p>
       }
     }
-    return <Link to='/currentcheck'>
+    return <Link to='/currentcheck' className='open-check-button-link-tag'>
       <button
-        onClick={() => this.props.postCheck(id)}>
+        onClick={() => this.props.postCheck(id)}
+        className='open-check-button'>
         Open Check
       </button>
     </Link>
@@ -28,10 +29,14 @@ export default class TableCard extends Component {
     const { table, postCheck, openChecks } = this.props;
     return (
       <article className='table-card' id={table.id}>
-        <h3>Table {table.number}</h3>
-        {
-          this.returnButton2(table.id)
-        }
+        <div className='table-card-top'>
+          <h3 className='table-card-table-number'>Table {table.number}</h3>
+        </div>
+        <div className='table-card-bottom'>
+          {
+            this.returnButton2(table.id)
+          }
+        </div>
       </article>
     );
   }
