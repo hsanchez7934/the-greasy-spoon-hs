@@ -92,5 +92,4 @@ const mapDispatchToProps = dispatch => ({
   fetchCheckById: (id) => dispatch(fetchCheckById(id))
 });
 
-//eslint-disable-next-line
 export default connect(mapStateToProps, mapDispatchToProps)(ClosedChecksContainer);

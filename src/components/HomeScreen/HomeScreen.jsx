@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import './HomeScreen.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import TablesContainer from '../TablesContainer/TablesContainer.jsx';
-//eslint-disable-next-line
 import CurrentCheckContainer from '../CurrentCheckContainer/CurrentCheckContainer.jsx';
-//eslint-disable-next-line
 import OpenChecksContainer from '../OpenChecksContainer/OpenChecksContainer.jsx';
-//eslint-disable-next-line
 import ClosedChecksContainer from '../ClosedChecksContainer/ClosedChecksContainer.jsx';
 import HomePage from '../HomePage/HomePage.jsx';
 import menu from '../../assets/menu.svg';
@@ -53,7 +50,7 @@ export default class HomeScreen extends Component {
         main: () => <ClosedChecksContainer />
       }
     ];
-    
+
     return (
       <Router>
         <section id='homescreen-container'>
