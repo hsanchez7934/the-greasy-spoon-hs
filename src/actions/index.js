@@ -25,12 +25,6 @@ export const addItemToCheck = item => ({
   item
 });
 
-//MIGHT NOT BE USING THIS ACTION CREATOR
-export const closedCheck = check => ({
-  type: 'CLOSE_CHECK',
-  check
-});
-
 export const putCheckClose = (id) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks/${id}/close`, {
     method: 'PUT',
@@ -41,10 +35,8 @@ export const putCheckClose = (id) => dispatch => {
     body: {}
   })
     .then(response => response.json())
-    .then(response => {
-      dispatch(closedCheck(response));
-      dispatch(fetchCheckById(id));
-    })
+    .then(response => response)
+    .then(() => dispatch(fetchCheckById(id)))
     .catch(error => error);
 };
 

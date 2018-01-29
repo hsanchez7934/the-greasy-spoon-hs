@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import './CurrentCheckContainer.css';
-import { fetchItems, fetchTables, putItemToCheck, fetchCheckById, putCheckItemVoid, putCheckClose } from '../../actions';
+import {
+  fetchItems,
+  fetchTables,
+  putItemToCheck,
+  fetchCheckById,
+  putCheckItemVoid,
+  putCheckClose
+} from '../../actions';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -21,7 +28,6 @@ class CurrentCheckContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.storedCheck);
     if (nextProps.storedCheck.closed === true) {
       this.setState({
         newCheck: false
@@ -58,7 +64,6 @@ class CurrentCheckContainer extends Component {
       storedCheck={this.props.storedCheck}
       items={this.props.items}
       table={table[0]}
-      closedCheck={this.props.closedCheck}
       newCheckAdded={this.newCheckAdded} />;
   }
 
