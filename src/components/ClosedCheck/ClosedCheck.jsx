@@ -54,39 +54,38 @@ export default class ClosedCheck extends Component {
     const { storedCheck, table } = this.props;
     return (
       <article className='closedcheck-card' id={storedCheck.id}>
-        <h3 className='title-table'>Table {table.number}</h3>
-        <h2 className='open-check-title'>Closed Check</h2>
-        <div className='items-container'>
-          <section className='ordered-items'>
-            <p className='oitems-title'>Ordered Items</p>
-            <ul className='items-ul added-items'>
-              {
-                storedCheck.orderedItems.map( (item, index) =>
-                  <li key={index} className={this.voidedClassName(item)}>
-                    {this.filterItem(item.itemId).name}
-                    <span className='ls-span'>
-                      ${this.filterItem(item.itemId).price.toFixed(2)}
-                    </span>
-                    {
-                      this.disableVoidButton(item)
-                    }
-                  </li>
-                )
-              }
-            </ul>
-            <p>Tax: {storedCheck.tax}</p>
-            <p>Tip: {storedCheck.tip}</p>
-            <p className='customer-total'>
-              Total: $
-              {
-                this.itemsTotal().toFixed(2)
-              }
-            </p>
-          </section>
-          <p>{this.finalTotal()}</p>
-        </div>
-        <div className='close-check-button-container'>
-          <Link to='/closedchecks'>
+        <h3 className='closed-title-table'>Table {table.number}</h3>
+        <h2 className='closed-check-title'>Closed Check</h2>
+        <section className='closed-ordered-items'>
+          <p className='oitems-title'>Ordered Items</p>
+          <ul className='closed-ordered-items-ul'>
+            {
+              storedCheck.orderedItems.map( (item, index) =>
+                <li key={index} className={this.voidedClassName(item)}>
+                  {this.filterItem(item.itemId).name}
+                  <span className='ls-span'>
+                    ${this.filterItem(item.itemId).price.toFixed(2)}
+                  </span>
+                  {
+                    this.disableVoidButton(item)
+                  }
+                </li>
+              )
+            }
+          </ul>
+
+        </section>
+        <p className='tax-tip'>
+          Sub-Total: $
+          {
+            this.itemsTotal().toFixed(2)
+          }
+        </p>
+        <p className='tax-tip'>Tax: {storedCheck.tax}</p>
+        <p className='tax-tip'>Tip: {storedCheck.tip}</p>
+        <p className='closed-customer-total'>Total: {this.finalTotal().toFixed(2)}</p>
+        <div className='exit-check-button-container'>
+          <Link to='/closedchecks' className='exit-button-link'>
             <button
               className='exit-button'
               onClick={() => this.props.newCheckAdded(true)}>

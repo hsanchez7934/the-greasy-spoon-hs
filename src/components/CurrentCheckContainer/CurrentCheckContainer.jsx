@@ -68,7 +68,7 @@ class CurrentCheckContainer extends Component {
 
     if (storedCheck.closed === true && newCheck === false) {
       return (
-        <section id='opencheck-container'>
+        <section id='currentcheck-container'>
           {
             this.createClosedCheckCard()
           }
@@ -76,7 +76,7 @@ class CurrentCheckContainer extends Component {
       );
     } else {
       return (
-        <section id='opencheck-container'>
+        <section id='currentcheck-container'>
           {
             this.createOpenCheckCard()
           }

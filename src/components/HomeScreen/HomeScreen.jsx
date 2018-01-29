@@ -5,11 +5,15 @@ import TablesContainer from '../TablesContainer/TablesContainer.jsx';
 import CurrentCheckContainer from '../CurrentCheckContainer/CurrentCheckContainer.jsx';
 import OpenChecksContainer from '../OpenChecksContainer/OpenChecksContainer.jsx';
 import ClosedChecksContainer from '../ClosedChecksContainer/ClosedChecksContainer.jsx';
+import HomePage from '../HomePage/HomePage.jsx';
 
 const routes = [
+  { path: '/',
+    exact: true,
+    main: () => <HomePage />
+  },
   {
     path: '/tables',
-    exact: true,
     main: () => <TablesContainer />
   },
   {
@@ -33,13 +37,30 @@ const HomeScreen = () => (
 
       <aside id='sidebar-container'>
         <section id='restaurant-title'>
-          <h1>The Greasy Spoon</h1>
+          <h1 id='greasy-spoon-text'>The Greasy Spoon</h1>
         </section>
         <section id='links-container'>
-          <ul>
-            <li><Link to='/tables'>Tables</Link></li>
-            <li><Link to='/openchecks'>Open Checks</Link></li>
-            <li><Link to='/closedchecks'>Closed Checks</Link></li>
+          <ul id='nav-links-ul'>
+            <li className='nav-links-li'>
+              <Link
+                to='/'
+                className='nav-links-link-tag'>Home</Link>
+            </li>
+            <li className='nav-links-li'>
+              <Link
+                to='/tables'
+                className='nav-links-link-tag'>Tables</Link>
+            </li>
+            <li className='nav-links-li'>
+              <Link
+                to='/openchecks'
+                className='nav-links-link-tag'>Open Checks</Link>
+            </li>
+            <li className='nav-links-li'>
+              <Link
+                to='/closedchecks'
+                className='nav-links-link-tag'>Closed Checks</Link>
+            </li>
           </ul>
         </section>
       </aside>

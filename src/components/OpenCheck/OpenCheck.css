@@ -1,7 +1,7 @@
 .opencheck-card {
   width: 90%;
   height: 90%;
-  background-color: #FFD306;
+  background-color: #b3cde0;
   padding: 30px 0px; }
   .opencheck-card .title-table {
     width: 100%;
@@ -29,14 +29,14 @@
   .opencheck-card .items-list {
     width: 50%;
     height: 100%;
-    border-left: 1px solid #2D2D2D; }
+    border-left: 1px solid #011f4b; }
 
 .oitems-title {
   margin: 0 auto;
   width: 80%;
   height: 5%;
   text-align: center;
-  border-bottom: 1px solid #2D2D2D;
+  border-bottom: 1px solid #011f4b;
   font-size: 1.5em; }
 
 .items-list-styles {
@@ -65,21 +65,21 @@
   width: 20%;
   height: 28px;
   border: 0;
-  background-color: #EDECED; }
+  background-color: #6497b1; }
 
 .list-buttons:disabled {
   background-color: red;
-  color: #EDECED; }
+  color: #6497b1; }
 
 .list-buttons:disabled:hover {
   background-color: red;
-  color: #EDECED;
+  color: #6497b1;
   cursor: not-allowed; }
 
 .list-buttons:hover {
-  background-color: #00C5D0;
+  background-color: #005b96;
   cursor: pointer;
-  color: #EDECED; }
+  color: #6497b1; }
 
 .list-buttons:focus {
   outline: none; }
@@ -113,9 +113,9 @@
   margin: 10px auto; }
 
 .save-check-button:hover {
-  background-color: #00C5D0;
+  background-color: #005b96;
   cursor: pointer;
-  color: #EDECED; }
+  color: #6497b1; }
 
 .save-check-button:focus {
   outline: none; }
@@ -126,20 +126,20 @@
   font-size: 1.5em; }
 
 .close-check-button:hover {
-  background-color: #00C5D0;
+  background-color: #005b96;
   cursor: pointer;
-  color: #EDECED; }
+  color: #6497b1; }
 
 .close-check-button:focus {
   outline: none; }
 
 .close-check-button:disabled {
   background-color: red;
-  color: #EDECED; }
+  color: #6497b1; }
 
 .close-check-button:disabled:hover {
   background-color: red;
-  color: #EDECED;
+  color: #6497b1;
   cursor: not-allowed; }
 
 a.save-button-link {

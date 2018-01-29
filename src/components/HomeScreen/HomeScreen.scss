@@ -3,52 +3,57 @@
 #homescreen-container {
   height: 100%;
   width: 100%;
-  background-color: $color4;;
+  background-color: $color6;
   display: flex;
 }
 
 #sidebar-container {
-  background-color: $color2;
   width: 20%;
   height: 100%;
   #restaurant-title {
     width: 100%;
     height: 20%;
-    background-color: $color1;
+    background-color: $color5;
     display: flex;
     justify-content: center;
     align-items: center;
-    h1 {
+    #greasy-spoon-text {
       font-weight: lighter;
-      color: $color3;
-      font-size: 1.5em;
+      color: $color1;
+      font-size: 2.0em;
       margin: 0;
+      font-weight: lighter;
     }
   }
   #links-container {
+    background-color: $color1;
     height: 80%;
     width: 100%;
-  ul {
-    // background-color: pink;
-    padding: 50px 0px 0px 0px;
+  #nav-links-ul {
+    padding: 50px 0px;
     margin: 0;
-    li {
+    .nav-links-li {
       list-style: none;
-      // background-color: red;
-      margin: 0px auto 20px;
-      text-align: center;
+      font-weight: lighter;
+      margin: 0px auto 50px;
       width: 50%;
       font-size: 1.5em;
       color: $color3;
       text-decoration: none;
-    }
-    li:hover {
-      cursor: pointer;
-      color: $color5;
+      .nav-links-link-tag {
+        text-decoration: none;
+        color: $color5;
+
+      }
+      .nav-links-link-tag:hover {
+        cursor: pointer;
+        color: $color6;
+      }
     }
   }
   }
 }
+
 #container2 {
  width: 80%;
  height: 100%;
