@@ -1,11 +1,11 @@
-The Greasy Spoon
+###The Greasy Spoon
 
 Live App
 https://the-greasy-spoon-hs-1-29-2018.herokuapp.com/
 
-To run locally:
+###To run locally:
 
-Close this repository to an empty directory.
+Clone this repository to an empty directory.
 
 Run npm install
 
