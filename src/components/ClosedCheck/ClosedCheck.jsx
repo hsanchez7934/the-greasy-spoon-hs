@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ClosedCheck.css';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 export default class ClosedCheck extends Component {
 
   filterItem = (id) => {
@@ -32,7 +32,7 @@ export default class ClosedCheck extends Component {
     return 0;
   }
 
-  disableVoidButton = (item) => {
+  returnVoidedIndicator = (item) => {
     if (item.voided === true) {
       return (
         <p className='closed-voided-item'>Voided</p>
@@ -41,11 +41,27 @@ export default class ClosedCheck extends Component {
   }
 
   finalTotal = () => {
+    let subTotal;
     const { storedCheck } = this.props;
-    let subTotal = parseInt(this.itemsTotal().toFixed(2));
-    return subTotal + parseInt(storedCheck.tip.toFixed(2)) + parseInt(storedCheck.tax.toFixed(2));
-
+    subTotal = parseInt(this.itemsTotal().toFixed(2));
+    subTotal = subTotal + parseInt(storedCheck.tip.toFixed(2));
+    subTotal = subTotal + parseInt(storedCheck.tax.toFixed(2));
+    return subTotal;
   };
+
+  createOrderedItems = () => (
+    this.props.storedCheck.orderedItems.map( (item, index) =>
+      <li key={index} className={this.voidedClassName(item)}>
+        {this.filterItem(item.itemId).name}
+        <span className='ls-span'>
+          ${this.filterItem(item.itemId).price.toFixed(2)}
+        </span>
+        {
+          this.returnVoidedIndicator(item)
+        }
+      </li>
+    )
+  );
 
   render () {
     const { storedCheck, table } = this.props;
@@ -57,20 +73,9 @@ export default class ClosedCheck extends Component {
           <p className='oitems-title'>Ordered Items</p>
           <ul className='closed-ordered-items-ul'>
             {
-              storedCheck.orderedItems.map( (item, index) =>
-                <li key={index} className={this.voidedClassName(item)}>
-                  {this.filterItem(item.itemId).name}
-                  <span className='ls-span'>
-                    ${this.filterItem(item.itemId).price.toFixed(2)}
-                  </span>
-                  {
-                    this.disableVoidButton(item)
-                  }
-                </li>
-              )
+              this.createOrderedItems()
             }
           </ul>
-
         </section>
         <p className='tax-tip'>
           Sub-Total: $
@@ -78,11 +83,19 @@ export default class ClosedCheck extends Component {
             this.itemsTotal().toFixed(2)
           }
         </p>
-        <p className='tax-tip'>Tax: {storedCheck.tax}</p>
-        <p className='tax-tip'>Tip: {storedCheck.tip}</p>
-        <p className='closed-customer-total'>Total: ${this.finalTotal().toFixed(2)}</p>
+        <p className='tax-tip'>
+          Tax: {storedCheck.tax}
+        </p>
+        <p className='tax-tip'>
+          Tip: {storedCheck.tip}
+        </p>
+        <p className='closed-customer-total'>
+          Total: ${this.finalTotal().toFixed(2)}
+        </p>
         <div className='exit-check-button-container'>
-          <Link to='/closedchecks' className='exit-button-link'>
+          <Link
+            to='/closedchecks'
+            className='exit-button-link'>
             <button
               className='exit-button'
               onClick={() => this.props.newCheckAdded(true)}>
@@ -94,3 +107,10 @@ export default class ClosedCheck extends Component {
     );
   }
 }
+
+ClosedCheck.propTypes = {
+  newCheckAdded: PropTypes.func,
+  storedCheck: PropTypes.object,
+  table: PropTypes.object,
+  items: PropTypes.array
+};

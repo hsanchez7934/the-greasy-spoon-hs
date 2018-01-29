@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ClosedChecksContainer.css';
-import { fetchItems, fetchTables, putItemToCheck, fetchCheckById, putCheckItemVoid, putCheckClose, fetchChecks } from '../../actions';
+import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ClosedCheck from '../ClosedCheck/ClosedCheck.jsx';
 import moment from 'moment';
@@ -17,7 +17,7 @@ class ClosedChecksContainer extends Component {
   findTable = (tableID) => {
     const table = this.props.tables.filter( table =>
       table.id === tableID);
-      return table[0];
+    return table[0];
   }
 
   formatDate = (date) => {
@@ -30,8 +30,12 @@ class ClosedChecksContainer extends Component {
       if (check.closed === true ) {
         return <article key={index} id={check.id} className='closed-checks'>
           <div className='closed-check-top'>
-            <p className='closed-check-date'>{this.formatDate(check.dateCreated)}</p>
-            <h1 className='closed-check-table-number'>Table {this.findTable(check.tableId).number}</h1>
+            <p className='closed-check-date'>
+              {this.formatDate(check.dateCreated)}
+            </p>
+            <h1 className='closed-check-table-number'>
+              Table {this.findTable(check.tableId).number}
+            </h1>
           </div>
           <div className='closed-check-bottom'>
             <Link to='/currentcheck' className='see-details-button-link-tag'>
@@ -52,7 +56,6 @@ class ClosedChecksContainer extends Component {
   }
 
   render() {
-    console.log(this.props.checks);
     if (this.queryForClosedChecks().length === 0) {
       return (
         <section id='closedchecks-container'>
@@ -71,6 +74,14 @@ class ClosedChecksContainer extends Component {
   }
 }
 
+ClosedChecksContainer.propTypes = {
+  fetchChecks: PropTypes.func,
+  fetchTables: PropTypes.func,
+  tables: PropTypes.array,
+  checks: PropTypes.array,
+  fetchCheckById: PropTypes.func
+};
+
 const mapStateToProps = store => ({
   checks: store.checks,
   tables: store.tables
@@ -82,4 +93,5 @@ const mapDispatchToProps = dispatch => ({
   fetchCheckById: (id) => dispatch(fetchCheckById(id))
 });
 
+//eslint-disable-next-line
 export default connect(mapStateToProps, mapDispatchToProps)(ClosedChecksContainer);
