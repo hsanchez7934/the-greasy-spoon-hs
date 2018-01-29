@@ -13,6 +13,16 @@ export default class OpenCheck extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.storedCheck.orderedItems !== undefined) {
+      setTimeout(() => {
+        this.setState({
+          orderedItems: this.props.storedCheck.orderedItems
+        });
+      }, 400);
+    }
+  }
+
   voidButtonOnClick = (id, itemID) => {
     this.props.putCheckItemVoid(id, itemID);
     setTimeout(() => {
@@ -32,7 +42,7 @@ export default class OpenCheck extends Component {
   }
 
   disableVoidButton = (item) => {
-    const { check } = this.props;
+    const { storedCheck } = this.props;
     if (item.voided === true) {
       return (
         <button
@@ -45,7 +55,7 @@ export default class OpenCheck extends Component {
     return (
       <button
         className='list-buttons'
-        onClick={() => this.voidButtonOnClick(check.id, item.id, item)}>
+        onClick={() => this.voidButtonOnClick(storedCheck.id, item.id, item)}>
         VOID ITEM
       </button>
     );
@@ -63,7 +73,6 @@ export default class OpenCheck extends Component {
   }
 
   createOrderedItems = () => {
-    const { check } = this.props;
     return this.state.orderedItems.map( (item, index) =>
       <li key={index} className={this.voidedClassName(item)}>
         {this.filterItem(item.itemId).name}
@@ -78,7 +87,7 @@ export default class OpenCheck extends Component {
   }
 
   createMenuItems = () => {
-    const { check, items } = this.props;
+    const { storedCheck, items } = this.props;
     return items.map( (item, index) =>
       <li
         key={index}
@@ -90,7 +99,7 @@ export default class OpenCheck extends Component {
         </span>
         <button
           className='list-buttons'
-          onClick={() => this.addButtonOnClick(check.id, item.id, item)}>
+          onClick={() => this.addButtonOnClick(storedCheck.id, item.id, item)}>
           ADD ITEM
         </button>
       </li>
@@ -119,8 +128,8 @@ export default class OpenCheck extends Component {
   }
 
   render() {
-    const { table, check, items } = this.props;
-    if (!table || !check || !items) {
+    const { table, storedCheck, items } = this.props;
+    if (!table || !storedCheck || !items) {
       return (
         <div>
           SELECT A TABLE TO OPEN A CHECK
@@ -128,7 +137,7 @@ export default class OpenCheck extends Component {
       );
     } else {
       return (
-        <article className='opencheck-card' id={check.id}>
+        <article className='opencheck-card' id={storedCheck.id}>
           <h3 className='title-table'>Table {table.number}</h3>
           <h2 className='open-check-title'>Open Check</h2>
           <div className='items-container'>
@@ -161,7 +170,7 @@ export default class OpenCheck extends Component {
           <div className='close-check-button-container'>
             <button
               className='close-check-button'
-              onClick={() => this.closeCheckButtonOnClick(check.id)}>
+              onClick={() => this.closeCheckButtonOnClick(storedCheck.id)}>
               CLOSE CHECK
             </button>
           </div>

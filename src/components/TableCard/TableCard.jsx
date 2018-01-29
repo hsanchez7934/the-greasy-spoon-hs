@@ -12,7 +12,7 @@ export default class TableCard extends Component {
     return (
       <article className='table-card' id={table.id}>
         <h3>Table {table.number}</h3>
-        <Link to='/opencheck'>
+        <Link to='/currentcheck'>
           <button onClick={() => postCheck(table.id)}>
             Open Check
           </button>

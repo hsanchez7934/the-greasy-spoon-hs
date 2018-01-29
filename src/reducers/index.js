@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import tables from './tablesReducer.js';
+import checks from './checksReducer.js';
 import addedCheckReducer from './addCheckReducer.js';
 import items from './itemsReducer.js';
 import addItemToCheckReducer from './putItemReducer.js';
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   addedCheckReducer,
   addItemToCheckReducer,
   checkByIdReducer,
-  closedCheckReducer
+  closedCheckReducer,
+  checks
 });
 
 export default rootReducer;

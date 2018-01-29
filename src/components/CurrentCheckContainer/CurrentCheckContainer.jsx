@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './OpenCheckContainer.css';
+import './CurrentCheckContainer.css';
 import { fetchItems, fetchTables, putItemToCheck, fetchCheckById, putCheckItemVoid, putCheckClose } from '../../actions';
 import { connect } from 'react-redux';
-import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import OpenCheck from '../OpenCheck/OpenCheck.jsx';
 import ClosedCheck from '../ClosedCheck/ClosedCheck.jsx';
 
-class OpenCheckContainer extends Component {
+class CurrentCheckContainer extends Component {
 
   constructor() {
     super();
@@ -28,13 +28,12 @@ class OpenCheckContainer extends Component {
 
   findTable = () => {
     return this.props.tables.filter( table =>
-      table.id === this.props.addedCheck.tableId);
+      table.id === this.props.storedCheck.tableId);
   }
 
   createOpenCheckCard = () => {
     const table = this.findTable();
     return <OpenCheck
-      check={this.props.addedCheck}
       table={table[0]}
       items={this.props.items}
       putItemToCheck={this.props.putItemToCheck}
@@ -79,7 +78,7 @@ class OpenCheckContainer extends Component {
 }
 
 
-OpenCheckContainer.propTypes = {
+CurrentCheckContainer.propTypes = {
   fetchItems: PropTypes.func,
   addedCheck: PropTypes.object,
   tables: PropTypes.array,
@@ -108,4 +107,4 @@ const mapDispatchToProps = dispatch => ({
   putCheckClose: (id) => dispatch(putCheckClose(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OpenCheckContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentCheckContainer);

@@ -1,5 +1,10 @@
 import apiKey from '../apikey.js';
 
+export const getChecks = checksArray => ({
+  type: 'GET_CHECKS',
+  checksArray
+});
+
 export const getTables = tablesArray => ({
   type: 'GET_TABLES',
   tablesArray
@@ -106,7 +111,7 @@ export const postCheck = (id) => dispatch => {
     body: JSON.stringify(newCheck)
   })
     .then(response => response.json())
-    .then(response => dispatch(addCheck(response)))
+    .then(response => dispatch(fetchCheckById(response.id)))
     .catch(error => console.log(error));
 };
 
@@ -139,6 +144,6 @@ export const fetchChecks = () => dispatch => {
     }
   })
     .then(response => response.json())
-    .then(response => dispatch(getTables(response)))
+    .then(response => dispatch(getChecks(response)))
     .catch(error => console.log(error));
 };
