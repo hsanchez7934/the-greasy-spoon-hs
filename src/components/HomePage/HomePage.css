@@ -66,3 +66,64 @@
   background-color: #b3cde0;
   cursor: pointer;
   color: #011f4b; }
+
+@media screen and (max-width: 1500px) {
+  #homepage-title {
+    font-size: 2.5em; }
+  #homepage-welcome {
+    font-size: 2em; }
+  #homepage-text {
+    font-size: 1.2em; }
+  #get-started-button {
+    font-size: 1em; } }
+
+@media screen and (max-width: 750px) {
+  #homepage-title {
+    font-size: 2em; }
+  #homepage-welcome {
+    font-size: 1.5em; }
+  #homepage-text {
+    font-size: 1em; }
+  #get-started-button-link-tag {
+    height: 40%;
+    width: 50%; }
+  #get-started-button {
+    font-size: 1em; } }
+
+@media screen and (max-width: 600px) {
+  #homepage-title {
+    font-size: 1.7em;
+    width: 60%; }
+  #homepage-welcome {
+    font-size: 1.2em;
+    width: 60%;
+    padding: 15px 0px 0px 0px; }
+  #homepage-text {
+    font-size: 1em;
+    width: 60%;
+    padding-top: 10px; }
+  #get-started-button-link-tag {
+    margin-top: 100px; }
+  #get-started-button {
+    font-size: 0.7em; } }
+
+@media screen and (max-width: 400px) {
+  #homepage-title {
+    font-size: 1.3em;
+    width: 60%; }
+  #homepage-welcome {
+    font-size: 1.1em;
+    width: 60%;
+    padding: 15px 0px 0px 0px; }
+  #homepage-text {
+    font-size: 0.8em;
+    width: 60%;
+    padding-top: 10px; }
+  #get-started-button-link-tag {
+    margin-top: 100px; }
+  #get-started-button {
+    font-size: 0.7em; }
+  #homepage-information-container {
+    border: 1px solid #b3cde0;
+    height: 70%;
+    width: 80%; } }

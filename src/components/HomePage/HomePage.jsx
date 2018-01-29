@@ -18,7 +18,6 @@ const HomePage = () => (
         <Link to='/tables' id='get-started-button-link-tag'>
           <button id='get-started-button'>GET STARTED</button>
         </Link>
-
       </div>
     </section>
   </section>
