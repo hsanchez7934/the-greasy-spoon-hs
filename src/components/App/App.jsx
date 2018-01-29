@@ -7,12 +7,11 @@ import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 class App extends Component {
 
   componentDidMount() {
-    // this.getTables();
-      // this.getChecks();
+    this.cleanSlate();
   }
 
 
-  getTables = () => {
+  cleanSlate = () => {
     fetch(`https://check-api.herokuapp.com/checks`, {
       method: 'DELETE',
       headers: {
@@ -20,19 +19,8 @@ class App extends Component {
       }
     })
       .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
-  };
-
-  getChecks = () => {
-    fetch(`https://check-api.herokuapp.com/checks/1e6df0a0-50b7-46a0-968a-961bab96a0ae`, {
-      headers: {
-        Authorization: apiKey
-      }
-    })
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
+      .then(response => response)
+      .catch(error => error);
   };
 
   render() {
