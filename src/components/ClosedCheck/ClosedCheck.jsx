@@ -80,7 +80,7 @@ export default class ClosedCheck extends Component {
         </p>
         <p className='tax-tip'>Tax: {storedCheck.tax}</p>
         <p className='tax-tip'>Tip: {storedCheck.tip}</p>
-        <p className='closed-customer-total'>Total: {this.finalTotal().toFixed(2)}</p>
+        <p className='closed-customer-total'>Total: ${this.finalTotal().toFixed(2)}</p>
         <div className='exit-check-button-container'>
           <Link to='/closedchecks' className='exit-button-link'>
             <button

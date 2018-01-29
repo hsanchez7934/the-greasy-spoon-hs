@@ -141,48 +141,7 @@ nav {
     height: 70%;
     width: 50%;
     background-color: black;
-    top: 0px; } }
-
-@media screen and (min-height: 1000px) {
-  .active {
-    top: 65px; } }
-
-@media screen and (max-height: 950px) {
-  .active {
-    top: 46px; } }
-
-@media screen and (max-height: 880px) {
-  .active {
-    top: 43px; } }
-
-@media screen and (max-height: 800px) {
-  .active {
-    top: 40px; } }
-
-@media screen and (max-height: 750px) {
-  .active {
-    top: 37px; } }
-
-@media screen and (max-height: 680px) {
-  .active {
-    top: 35px; } }
-
-@media screen and (max-height: 640px) {
-  .active {
-    top: 33px; } }
-
-@media screen and (max-height: 600px) {
-  .active {
-    top: 30px; } }
-
-@media screen and (max-height: 550px) {
-  .active {
-    top: 28px; } }
-
-@media screen and (max-height: 500px) {
-  .active {
-    top: 26px; } }
-
-@media screen and (max-height: 450px) {
-  .active {
-    top: 23px; } }
+    top: 0px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-bottom-right-radius: 20px; } }

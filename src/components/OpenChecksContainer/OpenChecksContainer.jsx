@@ -28,7 +28,7 @@ class OpenChecksContainer extends Component {
   createOpenTablesCard = () => {
     return this.props.checks.map( (check, index) => {
       if (check.closed === false ) {
-        return <article key={index} id={check.id} className='closed-checks'>
+        return <article key={index} id={check.id} className='open-checks'>
           <div className='open-check-top'>
             <p className='open-check-date'>{this.formatDate(check.dateCreated)}</p>
             <h1 className='open-check-table-number'>Table {this.findTable(check.tableId).number}</h1>

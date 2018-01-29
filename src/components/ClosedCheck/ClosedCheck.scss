@@ -128,3 +128,61 @@ a.exit-button-link {
   float: right;
   margin: 0;
 }
+
+@media screen and (max-width: 1300px) {
+  .closed-title-table {
+    font-size: 2.5em;
+  }
+
+  .closed-check-title {
+    font-size: 1.5em;
+  }
+
+  .oitems-title {
+    font-size: 1.2em;
+  }
+
+  .closed-items-list-styles {
+    font-size: 1.2em;
+  }
+
+  .tax-tip {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .oitems-title {
+    font-size: 1em;
+  }
+
+  a.exit-button-link {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .closed-title-table {
+    font-size: 2.2em;
+  }
+
+  .closed-check-title {
+    font-size: 1.2em;
+  }
+
+  .oitems-title {
+    font-size: 1em;
+  }
+
+  .closed-items-list-styles {
+    font-size: 0.8em;
+  }
+
+  .tax-tip {
+    font-size: 1em;
+  }
+
+  a.exit-button-link {
+    width: 50%;
+  }
+}

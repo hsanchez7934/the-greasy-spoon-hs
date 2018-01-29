@@ -68,3 +68,74 @@ a.open-check-button-link-tag {
   font-size: 2em;
   color: red;
 }
+
+@media screen and (max-width: 1200px) {
+  .open-check-button {
+    font-size: 0.9em;
+  }
+
+  a.open-check-button-link-tag {
+    height: 30%;
+    width: 60%;
+  }
+
+  .table-card-table-number {
+    font-size: 1.5em;
+  }
+
+  .open-check-warning {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .open-check-warning {
+    font-size: 0.8em;
+  }
+
+  .open-check-button {
+    font-size: 0.6em;
+  }
+
+  a.open-check-button-link-tag {
+    height: 30%;
+    width: 60%;
+  }
+
+  .table-card-table-number {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .open-check-warning {
+    font-size: 1.3em;
+  }
+
+  .table-card {
+    width: 60%;
+    height: 40%;
+    margin: 20px 0px;
+  }
+
+  .table-card-table-number {
+    font-size: 1.7em;
+  }
+
+  .open-check-button {
+    font-size: 0.9em;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .table-card {
+    width: 70%;
+  }
+
+  .open-check-warning {
+    font-size: 1.0em;
+  }
+}

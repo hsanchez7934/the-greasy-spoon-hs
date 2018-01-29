@@ -65,3 +65,32 @@ a.see-details-button-link-tag {
 
 .no-closed-checks-warning {
   font-size: 3em; }
+
+@media screen and (max-width: 1200px) {
+  a.see-details-button-link-tag {
+    height: 40%;
+    width: 45%; }
+  .see-details-button {
+    font-size: 1em; } }
+
+@media screen and (max-width: 1200px) {
+  .closed-check-date {
+    font-size: 0.7em; }
+  .closed-check-table-number {
+    font-size: 1.6em; } }
+
+@media screen and (max-width: 700px) {
+  .closed-check-date {
+    font-size: 1em; }
+  .closed-check-table-number {
+    font-size: 2em; }
+  .closed-checks {
+    width: 70%;
+    height: 40%; } }
+
+@media screen and (max-width: 500px) {
+  a.see-details-button-link-tag {
+    height: 40%;
+    width: 70%; }
+  .closed-check-date {
+    font-size: 0.7em; } }
