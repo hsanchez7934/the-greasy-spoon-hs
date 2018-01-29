@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import './CurrentCheckContainer.css';
 import {
   fetchItems,
-  fetchTables,
   putItemToCheck,
   fetchCheckById,
   putCheckItemVoid,
   putCheckClose
 } from '../../actions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import OpenCheck from '../OpenCheck/OpenCheck.jsx';
 import ClosedCheck from '../ClosedCheck/ClosedCheck.jsx';

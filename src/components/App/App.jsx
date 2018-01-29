@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import apiKey from '../../apikey.js';
 import HomeScreen from '../HomeScreen/HomeScreen.jsx';
 
 const App = () => (

@@ -4,7 +4,6 @@ import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ClosedCheck from '../ClosedCheck/ClosedCheck.jsx';
 import moment from 'moment';
 
 class ClosedChecksContainer extends Component {

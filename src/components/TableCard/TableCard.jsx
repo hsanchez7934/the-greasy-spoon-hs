@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './TableCard.css';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -24,7 +23,7 @@ export default class TableCard extends Component {
   }
 
   render() {
-    const { table, postCheck, openChecks } = this.props;
+    const { table } = this.props;
     return (
       <article className='table-card' id={table.id}>
         <div className='table-card-top'>

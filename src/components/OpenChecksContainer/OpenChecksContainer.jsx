@@ -4,7 +4,6 @@ import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import OpenCheck from '../OpenCheck/OpenCheck.jsx';
 import moment from 'moment';
 
 class OpenChecksContainer extends Component {
