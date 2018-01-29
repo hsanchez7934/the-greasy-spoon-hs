@@ -1,6 +1,7 @@
 The Greasy Spoon
 
-![Live App]('https://the-greasy-spoon-hs-1-29-2018.herokuapp.com/')
+Live App
+https://the-greasy-spoon-hs-1-29-2018.herokuapp.com/
 
 To run locally:
 
