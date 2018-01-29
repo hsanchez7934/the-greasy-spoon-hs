@@ -1,4 +1,4 @@
-import API_KEY from '../.env';
+import API_KEY from '../apikey.js';
 
 export const getChecks = checksArray => ({
   type: 'GET_CHECKS',
@@ -29,7 +29,7 @@ export const putCheckClose = (id) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks/${id}/close`, {
     method: 'PUT',
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     },
     accept: 'application/json',
     body: {}
@@ -46,7 +46,7 @@ export const putCheckItemVoid = (id, itemID) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks/${id}/voidItem`, {
     method: 'PUT',
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     },
     accept: 'application/json',
     body: JSON.stringify(itemToVoid)
@@ -64,7 +64,7 @@ export const putItemToCheck = (id, itemID) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks/${id}/addItem`, {
     method: 'PUT',
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     },
     accept: 'application/json',
     body: JSON.stringify(newItem)
@@ -78,7 +78,7 @@ export const putItemToCheck = (id, itemID) => dispatch => {
 export const fetchCheckById = (id) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks/${id}`, {
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     }
   })
     .then(response => response.json())
@@ -93,7 +93,7 @@ export const postCheck = (id) => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks`, {
     method: 'POST',
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     },
     accept: 'application/json',
     body: JSON.stringify(newCheck)
@@ -107,7 +107,7 @@ export const postCheck = (id) => dispatch => {
 export const fetchTables = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/tables`, {
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     }
   })
     .then(response => response.json())
@@ -129,7 +129,7 @@ export const fetchItems = () => dispatch => {
 export const fetchChecks = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks`, {
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     }
   })
     .then(response => response.json())
@@ -141,7 +141,7 @@ export const deleteAllChecks = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/checks`, {
     method: 'DELETE',
     headers: {
-      Authorization: process.env.API_KEY
+      Authorization: API_KEY
     }
   })
     .then(response => response.json())

@@ -5,10 +5,10 @@ import App from './components/App/App.jsx';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore.js';
-require('dotenv').config();
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = configureStore();
+require('dotenv').config();
 
 ReactDOM.render(
   <Provider store={ store }>
