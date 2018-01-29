@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import './HomeScreen.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import TablesContainer from '../TablesContainer/TablesContainer.jsx';
+//eslint-disable-next-line
 import CurrentCheckContainer from '../CurrentCheckContainer/CurrentCheckContainer.jsx';
+//eslint-disable-next-line
 import OpenChecksContainer from '../OpenChecksContainer/OpenChecksContainer.jsx';
+//eslint-disable-next-line
 import ClosedChecksContainer from '../ClosedChecksContainer/ClosedChecksContainer.jsx';
 import HomePage from '../HomePage/HomePage.jsx';
 import menu from '../../assets/menu.svg';
@@ -50,10 +53,11 @@ export default class HomeScreen extends Component {
         main: () => <ClosedChecksContainer />
       }
     ];
+    
     return (
       <Router>
-
         <section id='homescreen-container'>
+
           <nav>
             <section id='nav-left'>
               <img
@@ -62,7 +66,8 @@ export default class HomeScreen extends Component {
                 className='mobile-menu-icon'
                 onMouseEnter={() => this.changeIcon('icon', menuHover)}
                 onMouseLeave={() => this.changeIcon('icon', menu)}
-                onClick={() => this.setState({active: 'drop-down-menu active'})}/>
+                onClick={() =>
+                  this.setState({active: 'drop-down-menu active'})}/>
             </section>
             <section id='nav-right'>
               <h6 id='mobile-title'>The Greasy Spoon</h6>
@@ -146,9 +151,7 @@ export default class HomeScreen extends Component {
             }
           </div>
         </section>
-
       </Router>
-
     );
   }
 }
