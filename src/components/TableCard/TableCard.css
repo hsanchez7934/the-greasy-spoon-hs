@@ -35,7 +35,7 @@
 
 a.open-check-button-link-tag {
   height: 30%;
-  width: 40%; }
+  width: 50%; }
 
 .open-check-button {
   height: 100%;
@@ -43,7 +43,7 @@ a.open-check-button-link-tag {
   background-color: #6497b1;
   border: 0px;
   color: #F7F7F5;
-  font-size: 1.2em; }
+  font-size: 1em; }
 
 .open-check-button:focus {
   outline: none; }
