@@ -102,7 +102,6 @@ export const postCheck = (id) => dispatch => {
     .catch(error => error);
 };
 
-//THESE THREE FUNCTIONS ARE EXACTLY ALIKE, THINK OF REFACTORING
 export const fetchTables = () => dispatch => {
   fetch(`https://check-api.herokuapp.com/tables`, {
     headers: {
