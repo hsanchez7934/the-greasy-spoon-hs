@@ -103,10 +103,25 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  flex-direction: column; }
+
+.save-check-button {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  margin: 10px auto; }
+
+.save-check-button:hover {
+  background-color: #00C5D0;
+  cursor: pointer;
+  color: #EDECED; }
+
+.save-check-button:focus {
+  outline: none; }
 
 .close-check-button {
-  height: 40%;
+  height: 35%;
   width: 25%;
   font-size: 1.5em; }
 
@@ -126,3 +141,13 @@
   background-color: red;
   color: #EDECED;
   cursor: not-allowed; }
+
+a.save-button-link {
+  height: 35%;
+  width: 25%;
+  background-color: pink;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; }

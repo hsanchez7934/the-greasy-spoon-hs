@@ -44,16 +44,16 @@ export default class ClosedCheck extends Component {
   }
 
   finalTotal = () => {
-    const { closedCheck } = this.props;
+    const { storedCheck } = this.props;
     let subTotal = parseInt(this.itemsTotal().toFixed(2));
-    return subTotal + parseInt(closedCheck.tip.toFixed(2)) + parseInt(closedCheck.tax.toFixed(2));
+    return subTotal + parseInt(storedCheck.tip.toFixed(2)) + parseInt(storedCheck.tax.toFixed(2));
 
   };
 
   render () {
-    const { storedCheck, closedCheck, table } = this.props;
+    const { storedCheck, table } = this.props;
     return (
-      <article className='closedcheck-card' id={closedCheck.id}>
+      <article className='closedcheck-card' id={storedCheck.id}>
         <h3 className='title-table'>Table {table.number}</h3>
         <h2 className='open-check-title'>Closed Check</h2>
         <div className='items-container'>
@@ -61,7 +61,7 @@ export default class ClosedCheck extends Component {
             <p className='oitems-title'>Ordered Items</p>
             <ul className='items-ul added-items'>
               {
-                closedCheck.orderedItems.map( (item, index) =>
+                storedCheck.orderedItems.map( (item, index) =>
                   <li key={index} className={this.voidedClassName(item)}>
                     {this.filterItem(item.itemId).name}
                     <span className='ls-span'>
@@ -86,7 +86,7 @@ export default class ClosedCheck extends Component {
           <p>{this.finalTotal()}</p>
         </div>
         <div className='close-check-button-container'>
-          <Link to='/tables'>
+          <Link to='/closedchecks'>
             <button
               className='exit-button'
               onClick={() => this.props.newCheckAdded(true)}>

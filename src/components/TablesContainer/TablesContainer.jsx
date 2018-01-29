@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TablesContainer.css';
-import { fetchTables, postCheck, fetchCheckById } from '../../actions';
+import { fetchTables, postCheck, fetchCheckById, fetchChecks } from '../../actions';
 import { connect } from 'react-redux';
 import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,8 +8,28 @@ import TableCard from '../TableCard/TableCard.jsx';
 
 class TablesContainer extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      openChecks: []
+    };
+  }
+
   componentDidMount() {
+    this.filterOpenChecks();
     this.props.fetchTables();
+    this.props.fetchChecks();
+  }
+
+  filterOpenChecks = () => {
+    setTimeout(() => {
+      const openChecks = this.props.checks.filter( check =>
+        check.closed === false);
+      this.setState({
+        openChecks
+      });
+    }, 500);
   }
 
   createTableCards = () => (
@@ -17,7 +37,9 @@ class TablesContainer extends Component {
       <TableCard
         table={table}
         key={index}
-        postCheck={this.props.postCheck} />
+        postCheck={this.props.postCheck}
+        TableCardClassName={this.TableCardClassName}
+        openChecks={this.state.openChecks} />
     )
   )
 
@@ -33,16 +55,20 @@ class TablesContainer extends Component {
 TablesContainer.propTypes = {
   fetchTables: PropTypes.func,
   postCheck: PropTypes.func,
-  tables: PropTypes.array
+  tables: PropTypes.array,
+  fetchChecks: PropTypes.func,
+  checks: PropTypes.array
 };
 
 const mapStateToProps = store => ({
-  tables: store.tables
+  tables: store.tables,
+  checks: store.checks
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchTables: () => dispatch(fetchTables()),
-  postCheck: (id) => dispatch(postCheck(id))
+  postCheck: (id) => dispatch(postCheck(id)),
+  fetchChecks: () => dispatch(fetchChecks())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TablesContainer);

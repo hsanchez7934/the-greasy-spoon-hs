@@ -20,6 +20,15 @@ class CurrentCheckContainer extends Component {
     this.props.fetchItems();
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.storedCheck);
+    if (nextProps.storedCheck.closed === true) {
+      this.setState({
+        newCheck: false
+      });
+    }
+  }
+
   newCheckAdded = (query) => {
     this.setState({
       newCheck: query

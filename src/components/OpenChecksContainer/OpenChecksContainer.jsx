@@ -36,8 +36,7 @@ class OpenChecksContainer extends Component {
   }
 
   queryForOpenChecks = () => {
-    return this.props.checks.filter( (check, index) =>
-    check.closed === false);
+    return this.props.checks.filter( check => check.closed === false);
   }
 
   render() {

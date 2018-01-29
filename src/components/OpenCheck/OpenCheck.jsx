@@ -168,6 +168,11 @@ export default class OpenCheck extends Component {
 
           </div>
           <div className='close-check-button-container'>
+            <Link to='/openchecks' className='save-button-link'>
+              <button className='save-check-button'>
+                SAVE CHECK
+              </button>
+            </Link>
             <button
               className='close-check-button'
               onClick={() => this.closeCheckButtonOnClick(storedCheck.id)}>
