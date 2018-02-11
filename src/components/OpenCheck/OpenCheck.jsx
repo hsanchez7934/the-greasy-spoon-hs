@@ -67,8 +67,10 @@ export default class OpenCheck extends Component {
   }
 
   filterItem = (id) => {
-    const filteredItem = this.props.items.filter( item => item.id === id);
-    return filteredItem[0];
+    if (this.props.items.length) {
+      const filteredItem = this.props.items.filter( item => item.id === id);
+      return filteredItem[0];
+    }
   }
 
   createOrderedItems = () => {
