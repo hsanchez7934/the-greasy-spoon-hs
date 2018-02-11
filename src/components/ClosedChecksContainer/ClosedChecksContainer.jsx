@@ -9,15 +9,16 @@ import moment from 'moment';
 class ClosedChecksContainer extends Component {
 
   componentDidMount() {
-    console.log('test');
     this.props.fetchTables();
     this.props.fetchChecks();
   }
 
   findTable = (tableID) => {
-    const table = this.props.tables.filter( table =>
-      table.id === tableID);
-    return table[0].number.toString();
+    if (this.props.tables.length) {
+      const table = this.props.tables.filter( table =>
+        table.id === tableID);
+      return table[0].number;
+    }
   }
 
   formatDate = (date) => {

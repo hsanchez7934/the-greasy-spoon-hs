@@ -3,7 +3,8 @@ import './TablesContainer.css';
 import {
   fetchTables,
   postCheck,
-  fetchChecks
+  fetchChecks,
+  deleteAllChecks
 } from '../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -71,7 +72,8 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   fetchTables: () => dispatch(fetchTables()),
   postCheck: (id) => dispatch(postCheck(id)),
-  fetchChecks: () => dispatch(fetchChecks())
+  fetchChecks: () => dispatch(fetchChecks()),
+  deleteAllChecks: () => dispatch(deleteAllChecks())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TablesContainer);

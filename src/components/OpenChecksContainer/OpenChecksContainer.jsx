@@ -14,9 +14,11 @@ class OpenChecksContainer extends Component {
   }
 
   findTable = (tableID) => {
-    const table = this.props.tables.filter( table =>
-      table.id === tableID);
-    return table[0];
+    if (this.props.tables.length) {
+      const table = this.props.tables.filter( table =>
+        table.id === tableID);
+      return table[0];
+    }
   }
 
   formatDate = (date) => {
