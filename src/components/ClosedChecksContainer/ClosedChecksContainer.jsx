@@ -9,14 +9,15 @@ import moment from 'moment';
 class ClosedChecksContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchChecks();
+    console.log('test');
     this.props.fetchTables();
+    this.props.fetchChecks();
   }
 
   findTable = (tableID) => {
     const table = this.props.tables.filter( table =>
       table.id === tableID);
-    return table[0];
+    return table[0].number.toString();
   }
 
   formatDate = (date) => {
@@ -33,7 +34,7 @@ class ClosedChecksContainer extends Component {
               {this.formatDate(check.dateCreated)}
             </p>
             <h1 className='closed-check-table-number'>
-              Table {this.findTable(check.tableId).number}
+              Table {this.findTable(check.tableId)}
             </h1>
           </div>
           <div className='closed-check-bottom'>
@@ -55,6 +56,8 @@ class ClosedChecksContainer extends Component {
   }
 
   render() {
+    console.log(this.props.tables);
+    console.log(this.props.checks);
     if (this.queryForClosedChecks().length === 0) {
       return (
         <section id='closedchecks-container'>

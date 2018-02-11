@@ -9,8 +9,8 @@ import moment from 'moment';
 class OpenChecksContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchChecks();
     this.props.fetchTables();
+    this.props.fetchChecks();
   }
 
   findTable = (tableID) => {

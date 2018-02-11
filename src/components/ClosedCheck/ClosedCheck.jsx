@@ -7,6 +7,7 @@ export default class ClosedCheck extends Component {
 
   filterItem = (id) => {
     const filteredItem = this.props.items.filter( item => item.id === id);
+    console.log(filteredItem);
     return filteredItem[0];
   };
 

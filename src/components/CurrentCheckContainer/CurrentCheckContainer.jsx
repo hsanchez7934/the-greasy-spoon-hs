@@ -66,6 +66,7 @@ class CurrentCheckContainer extends Component {
   }
 
   render() {
+    console.log(this.props.storedCheck);
     const { storedCheck } = this.props;
     const { newCheck } = this.state;
 
