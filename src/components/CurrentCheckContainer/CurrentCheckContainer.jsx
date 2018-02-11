@@ -21,7 +21,7 @@ class CurrentCheckContainer extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchItems();
   }
 

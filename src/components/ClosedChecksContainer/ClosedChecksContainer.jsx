@@ -57,8 +57,6 @@ class ClosedChecksContainer extends Component {
   }
 
   render() {
-    console.log(this.props.tables);
-    console.log(this.props.checks);
     if (this.queryForClosedChecks().length === 0) {
       return (
         <section id='closedchecks-container'>
