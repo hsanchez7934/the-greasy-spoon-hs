@@ -1,44 +1,21 @@
 import React, { Component } from 'react';
 import './ClosedCheck.css';
 import { Link } from 'react-router-dom';
+import {
+  filterItem,
+  voidedClassName,
+  itemsTotal,
+  findTable } from '../../helperFunctions.js';
 import PropTypes from 'prop-types';
 
 export default class ClosedCheck extends Component {
 
-  filterItem = (id) => {
-    console.log(this.props.items.length);
-    if (this.props.items.length !== 0) {
-      const filteredItem = this.props.items.filter( item => item.id === id);
-      return filteredItem[0];
-    }
-  };
-
-  voidedClassName = (item) => {
-    return item.voided === true
-      ? 'closed-items-list-styles red'
-      : 'closed-items-list-styles';
-  }
-
-  itemsTotal = () => {
-    if (this.props.storedCheck.orderedItems) {
-      let filtered;
-      return this.props.storedCheck.orderedItems.reduce((acc, item) => {
-        filtered = this.filterItem(item.itemId);
-        if (item.voided === false) {
-          acc += filtered.price;
-        } else if (item.voided === true) {
-          filtered.price - acc;
-        }
-        return acc;
-      }, 0);
-    }
-    return 0;
-  }
-
   returnVoidedIndicator = (item) => {
     if (item.voided === true) {
       return (
-        <p className='closed-voided-item'>Voided</p>
+        <p className='closed-voided-item'>
+          Voided
+        </p>
       );
     }
   }
@@ -46,7 +23,7 @@ export default class ClosedCheck extends Component {
   finalTotal = () => {
     let subTotal;
     const { storedCheck } = this.props;
-    subTotal = parseInt(this.itemsTotal().toFixed(2));
+    subTotal = parseInt(itemsTotal(storedCheck.orderedItems, this.props.items).toFixed(2));
     subTotal = subTotal + parseInt(storedCheck.tip.toFixed(2));
     subTotal = subTotal + parseInt(storedCheck.tax.toFixed(2));
     return subTotal;
@@ -54,10 +31,10 @@ export default class ClosedCheck extends Component {
 
   createOrderedItems = () => (
     this.props.storedCheck.orderedItems.map( (item, index) =>
-      <li key={index} className={this.voidedClassName(item)}>
-        {this.filterItem(item.itemId).name}
+      <li key={index} className={voidedClassName(item)}>
+        {filterItem(this.props.items, item.itemId).name}
         <span className='ls-span'>
-          ${this.filterItem(item.itemId).price.toFixed(2)}
+          ${filterItem(this.props.items, item.itemId).price.toFixed(2)}
         </span>
         {
           this.returnVoidedIndicator(item)
@@ -67,11 +44,13 @@ export default class ClosedCheck extends Component {
   );
 
   render () {
-    const { storedCheck, table } = this.props;
-    if (this.props.items.length !== 0) {
+    const { storedCheck, tables, items, newCheckAdded } = this.props;
+    if (items.length !== 0 && storedCheck.id !== undefined) {
       return (
         <article className='closedcheck-card' id={storedCheck.id}>
-          <h3 className='closed-title-table'>Table {table.number}</h3>
+          <h3 className='closed-title-table'>
+            Table {findTable(storedCheck.tableId, tables)}
+          </h3>
           <h2 className='closed-check-title'>Closed Check</h2>
           <section className='closed-ordered-items'>
             <p className='oitems-title'>Ordered Items</p>
@@ -84,7 +63,7 @@ export default class ClosedCheck extends Component {
           <p className='tax-tip'>
             Sub-Total: $
             {
-              this.itemsTotal().toFixed(2)
+              itemsTotal(storedCheck.orderedItems, items).toFixed(2)
             }
           </p>
           <p className='tax-tip'>
@@ -102,7 +81,7 @@ export default class ClosedCheck extends Component {
               className='exit-button-link'>
               <button
                 className='exit-button'
-                onClick={() => this.props.newCheckAdded(true)}>
+                onClick={() => newCheckAdded(true)}>
                 EXIT
               </button>
             </Link>
@@ -111,8 +90,8 @@ export default class ClosedCheck extends Component {
       );
     } else {
       return (
-        <div>bitch</div>
-      )
+        <div></div>
+      );
     }
   }
 }
@@ -120,6 +99,6 @@ export default class ClosedCheck extends Component {
 ClosedCheck.propTypes = {
   newCheckAdded: PropTypes.func,
   storedCheck: PropTypes.object,
-  table: PropTypes.object,
+  tables: PropTypes.array,
   items: PropTypes.array
 };

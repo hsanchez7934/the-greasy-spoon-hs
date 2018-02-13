@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import './OpenChecksContainer.css';
 import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
+import {
+  findTable,
+  formatDate,
+  queryForChecks
+} from '../../helperFunctions.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
 
 class OpenChecksContainer extends Component {
 
@@ -13,32 +17,20 @@ class OpenChecksContainer extends Component {
     this.props.fetchChecks();
   }
 
-  findTable = (tableID) => {
-    if (this.props.tables.length) {
-      const table = this.props.tables.filter( table =>
-        table.id === tableID);
-      return table[0];
-    }
-  }
-
-  formatDate = (date) => {
-    const newDate = moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
-    return newDate;
-  }
-
   createOpenTablesCard = () => {
     return this.props.checks.map( (check, index) => {
       if (check.closed === false ) {
         return <article key={index} id={check.id} className='open-checks'>
           <div className='open-check-top'>
             <p className='open-check-date'>
-              {this.formatDate(check.dateCreated)}
+              {formatDate(check.dateCreated)}
             </p>
             <h1 className='open-check-table-number'>
-              Table {this.findTable(check.tableId).number}
+              Table {findTable(check.tableId, this.props.tables)}
             </h1>
           </div>
           <div className='open-check-bottom'>
+            <p>OPEN</p>
             <Link to='/currentcheck' className='see-details-button-link-tag'>
               <button
                 onClick={() => this.props.fetchCheckById(check.id)}
@@ -52,24 +44,24 @@ class OpenChecksContainer extends Component {
     });
   }
 
-  queryForOpenChecks = () => {
-    return this.props.checks.filter( check => check.closed === false);
-  }
-
   render() {
-    if (this.queryForOpenChecks().length === 0) {
+    if (queryForChecks(this.props.checks, false).length === 0) {
       return (
         <section id='openchecks-container'>
           <p className='no-open-checks-warning'>NO OPEN CHECKS</p>
         </section>
       );
-    } else {
+    } else if (this.props.tables.length !== 0) {
       return (
         <section id='openchecks-container'>
           {
             this.createOpenTablesCard()
           }
         </section>
+      );
+    } else {
+      return (
+        <div></div>
       );
     }
   }

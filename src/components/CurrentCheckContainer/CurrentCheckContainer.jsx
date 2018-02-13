@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import OpenCheck from '../OpenCheck/OpenCheck.jsx';
 import ClosedCheck from '../ClosedCheck/ClosedCheck.jsx';
+import { findTable } from '../../helperFunctions';
 
 class CurrentCheckContainer extends Component {
 
@@ -39,34 +40,29 @@ class CurrentCheckContainer extends Component {
     });
   }
 
-  findTable = () => {
-    return this.props.tables.filter( table =>
-      table.id === this.props.storedCheck.tableId);
-  }
-
   createOpenCheckCard = () => {
-    const table = this.findTable();
+    const { storedCheck, tables, items } = this.props;
     return <OpenCheck
-      table={table[0]}
-      items={this.props.items}
+      tables={tables}
+      items={items}
       putItemToCheck={this.props.putItemToCheck}
-      storedCheck={this.props.storedCheck}
+      storedCheck={storedCheck}
       putCheckItemVoid={this.props.putCheckItemVoid}
       putCheckClose={this.props.putCheckClose}
       newCheckAdded={this.newCheckAdded} />;
   }
 
   createClosedCheckCard = () => {
-    const table = this.findTable();
+    const { storedCheck, tables, items } = this.props;
     return <ClosedCheck
       storedCheck={this.props.storedCheck}
       items={this.props.items}
-      table={table[0]}
+      tables={tables}
       newCheckAdded={this.newCheckAdded} />;
   }
 
   render() {
-    console.log(this.props.storedCheck);
+
     const { storedCheck } = this.props;
     const { newCheck } = this.state;
 
@@ -78,13 +74,17 @@ class CurrentCheckContainer extends Component {
           }
         </section>
       );
-    } else {
+    } else if (this.props.tables.length !== 0 && storedCheck !== undefined) {
       return (
         <section id='currentcheck-container'>
           {
             this.createOpenCheckCard()
           }
         </section>
+      );
+    } else {
+      return (
+        <div></div>
       );
     }
   }

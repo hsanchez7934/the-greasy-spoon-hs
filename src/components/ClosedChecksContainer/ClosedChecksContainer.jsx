@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './ClosedChecksContainer.css';
 import { fetchTables, fetchCheckById, fetchChecks } from '../../actions';
+import {
+  findTable,
+  formatDate,
+  queryForChecks } from '../../helperFunctions.js';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 class ClosedChecksContainer extends Component {
 
@@ -13,29 +16,16 @@ class ClosedChecksContainer extends Component {
     this.props.fetchChecks();
   }
 
-  findTable = (tableID) => {
-    if (this.props.tables.length) {
-      const table = this.props.tables.filter( table =>
-        table.id === tableID);
-      return table[0].number;
-    }
-  }
-
-  formatDate = (date) => {
-    const newDate = moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
-    return newDate;
-  }
-
   createClosedTablesCard = () => {
     return this.props.checks.map( (check, index) => {
       if (check.closed === true ) {
         return <article key={index} id={check.id} className='closed-checks'>
           <div className='closed-check-top'>
             <p className='closed-check-date'>
-              {this.formatDate(check.dateCreated)}
+              {formatDate(check.dateCreated)}
             </p>
             <h1 className='closed-check-table-number'>
-              Table {this.findTable(check.tableId)}
+              Table {findTable(check.tableId, this.props.tables)}
             </h1>
           </div>
           <div className='closed-check-bottom'>
@@ -52,24 +42,24 @@ class ClosedChecksContainer extends Component {
     });
   }
 
-  queryForClosedChecks = () => {
-    return this.props.checks.filter( check => check.closed === true);
-  }
-
   render() {
-    if (this.queryForClosedChecks().length === 0) {
+    if (queryForChecks(this.props.checks, true).length === 0) {
       return (
         <section id='closedchecks-container'>
           <p className='no-closed-checks-warning'>NO CLOSED CHECKS</p>
         </section>
       );
-    } else {
+    } else if (this.props.tables.length !== 0) {
       return (
         <section id='closedchecks-container'>
           {
             this.createClosedTablesCard()
           }
         </section>
+      );
+    } else {
+      return (
+        <div></div>
       );
     }
   }

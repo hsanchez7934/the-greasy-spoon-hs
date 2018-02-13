@@ -14,7 +14,6 @@ class TablesContainer extends Component {
 
   constructor() {
     super();
-
     this.state = {
       openChecks: []
     };

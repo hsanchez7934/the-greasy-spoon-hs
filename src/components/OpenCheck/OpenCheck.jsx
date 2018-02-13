@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './OpenCheck.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {
+  filterItem,
+  voidedClassName,
+  itemsTotal,
+  findTable } from '../../helperFunctions.js';
 
 export default class OpenCheck extends Component {
 
@@ -60,32 +65,19 @@ export default class OpenCheck extends Component {
     );
   }
 
-  voidedClassName = (item) => {
-    return item.voided === true
-      ? 'items-list-styles red'
-      : 'items-list-styles';
-  }
-
-  filterItem = (id) => {
-    if (this.props.items.length) {
-      const filteredItem = this.props.items.filter( item => item.id === id);
-      return filteredItem[0];
-    }
-  }
-
-  createOrderedItems = () => {
-    return this.state.orderedItems.map( (item, index) =>
-      <li key={index} className={this.voidedClassName(item)}>
-        {this.filterItem(item.itemId).name}
+  createOrderedItems = () => (
+    this.state.orderedItems.map( (item, index) =>
+      <li key={index} className={voidedClassName(item)}>
+        {filterItem(this.props.items, item.itemId).name}
         <span className='ls-span'>
-          ${this.filterItem(item.itemId).price.toFixed(2)}
+          ${filterItem(this.props.items, item.itemId).price.toFixed(2)}
         </span>
         {
           this.disableVoidButton(item)
         }
       </li>
-    );
-  }
+    )
+  );
 
   createMenuItems = () => {
     const { storedCheck, items } = this.props;
@@ -107,39 +99,25 @@ export default class OpenCheck extends Component {
     );
   }
 
-  itemsTotal = () => {
-    if (this.props.storedCheck.orderedItems) {
-      let filtered;
-      return this.props.storedCheck.orderedItems.reduce((acc, item) => {
-        filtered = this.filterItem(item.itemId);
-        if (item.voided === false) {
-          acc += filtered.price;
-        } else if (item.voided === true) {
-          filtered.price - acc;
-        }
-        return acc;
-      }, 0);
-    }
-    return 0;
-  }
-
   closeCheckButtonOnClick = (id) => {
     this.props.putCheckClose(id);
     this.props.newCheckAdded(false);
   }
 
   render() {
-    const { table, storedCheck, items } = this.props;
-    if (!table || !storedCheck || !items) {
+    const { tables, storedCheck, items } = this.props;
+    if (!tables || !storedCheck || !items) {
       return (
         <div>
           SELECT A TABLE TO OPEN A CHECK
         </div>
       );
-    } else {
+    } else if (storedCheck.id !== undefined) {
       return (
         <article className='opencheck-card' id={storedCheck.id}>
-          <h3 className='title-table'>Table {table.number}</h3>
+          <h3 className='title-table'>
+            Table {findTable(storedCheck.tableId, tables)}
+          </h3>
           <h2 className='open-check-title'>Open Check</h2>
           <div className='items-container'>
 
@@ -153,7 +131,7 @@ export default class OpenCheck extends Component {
               <p className='customer-total'>
                 Total: $
                 {
-                  this.itemsTotal().toFixed(2)
+                  itemsTotal(storedCheck.orderedItems, items).toFixed(2)
                 }
               </p>
             </section>
@@ -182,12 +160,16 @@ export default class OpenCheck extends Component {
           </div>
         </article>
       );
+    } else {
+      return (
+        <div></div>
+      );
     }
   }
 }
 
 OpenCheck.propTypes ={
-  table: PropTypes.object,
+  tables: PropTypes.array,
   check: PropTypes.object,
   items: PropTypes.array,
   putItemToCheck: PropTypes.func,
