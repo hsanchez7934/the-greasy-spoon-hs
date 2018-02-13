@@ -23,7 +23,10 @@ export default class TableCard extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { table } = this.props;
+
+
     return (
       <article className='table-card' id={table.id}>
         <div className='table-card-top'>
