@@ -27,7 +27,7 @@ export const voidedClassName = (item) => {
 };
 
 export const itemsTotal = (array1, array2) => {
-  if (array1) {
+  if (array1.length !==0 && array2.length !== 0) {
     let filtered;
     return array1.reduce((acc, item) => {
       filtered = filterItem(array2, item.itemId);
