@@ -20,9 +20,9 @@ class TablesContainer extends Component {
   }
 
   componentDidMount() {
-    this.filterOpenChecks();
     this.props.fetchTables();
     this.props.fetchChecks();
+    this.filterOpenChecks();
   }
 
   filterOpenChecks = () => {
