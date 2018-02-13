@@ -8,6 +8,13 @@
   justify-content: space-around;
   flex-flow: row wrap;
   overflow: scroll;
+  align-items: center;
+}
+
+.loading-icon {
+  height: 100px;
+  width: 100px;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 600px) {
@@ -16,6 +23,6 @@
     flex-flow: column;
     align-items: center;
     justify-content: flex-start;
-    
+
   }
 }

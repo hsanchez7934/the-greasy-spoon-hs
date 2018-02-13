@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TableCard from '../TableCard/TableCard.jsx';
+import loadingIcon from '../../assets/loading-icon.svg';
 
 class TablesContainer extends Component {
 
@@ -47,11 +48,23 @@ class TablesContainer extends Component {
   )
 
   render() {
-    return (
-      <section id='tables-container'>
-        {this.createTableCards()}
-      </section>
-    );
+    if (this.props.tables.length !==0 && this.props.checks.length !== 0) {
+      return (
+        <section id='tables-container'>
+          {this.createTableCards()}
+        </section>
+      );
+    } else {
+      return (
+        <section id='tables-container'>
+          <img
+            src={loadingIcon}
+            className='loading-icon'>
+          </img>
+        </section>
+      );
+    }
+
   }
 }
 
