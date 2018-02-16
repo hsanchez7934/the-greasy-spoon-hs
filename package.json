@@ -28,5 +28,8 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom --watchAll",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme-to-json": "^3.3.1"
   }
 }

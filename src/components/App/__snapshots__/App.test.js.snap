@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component unit test should render correctly 1`] = `
+<App>
+  <div
+    className="App"
+  >
+    <HomeScreen>
+      <BrowserRouter>
+        <Router
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+        >
+          <section
+            id="homescreen-container"
+          >
+            <nav>
+              <section
+                id="nav-left"
+              >
+                <img
+                  alt="Mobile menu icon."
+                  className="mobile-menu-icon"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  src="menu.svg"
+                />
+              </section>
+              <section
+                id="nav-right"
+              >
+                <h6
+                  id="mobile-title"
+                >
+                  The Greasy Spoon
+                </h6>
+              </section>
+            </nav>
+            <div
+              className="drop-down-menu"
+            >
+              <div
+                id="cancel-icon-container"
+              >
+                <img
+                  alt="Mobile menu icon."
+                  className="mobile-menu-icon"
+                  id="cancel-icon"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  src="cancel.svg"
+                />
+              </div>
+              <ul
+                id="nav-links-ul"
+              >
+                <li
+                  className="nav-links-li"
+                >
+                  <Link
+                    className="nav-links-link-tag"
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      className="nav-links-link-tag"
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-links-li"
+                >
+                  <Link
+                    className="nav-links-link-tag"
+                    replace={false}
+                    to="/tables"
+                  >
+                    <a
+                      className="nav-links-link-tag"
+                      href="/tables"
+                      onClick={[Function]}
+                    >
+                      Tables
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-links-li"
+                >
+                  <Link
+                    className="nav-links-link-tag"
+                    replace={false}
+                    to="/openchecks"
+                  >
+                    <a
+                      className="nav-links-link-tag"
+                      href="/openchecks"
+                      onClick={[Function]}
+                    >
+                      Open Checks
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className="nav-links-li"
+                >
+                  <Link
+                    className="nav-links-link-tag"
+                    replace={false}
+                    to="/closedchecks"
+                  >
+                    <a
+                      className="nav-links-link-tag"
+                      href="/closedchecks"
+                      onClick={[Function]}
+                    >
+                      Closed Checks
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <aside
+              id="sidebar-container"
+            >
+              <section
+                id="restaurant-title"
+              >
+                <h1
+                  id="greasy-spoon-text"
+                >
+                  The Greasy Spoon
+                </h1>
+              </section>
+              <section
+                id="links-container"
+              >
+                <ul
+                  id="nav-links-ul"
+                >
+                  <li
+                    className="nav-links-li"
+                  >
+                    <Link
+                      className="nav-links-link-tag"
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="nav-links-link-tag"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Home
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-links-li"
+                  >
+                    <Link
+                      className="nav-links-link-tag"
+                      replace={false}
+                      to="/tables"
+                    >
+                      <a
+                        className="nav-links-link-tag"
+                        href="/tables"
+                        onClick={[Function]}
+                      >
+                        Tables
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-links-li"
+                  >
+                    <Link
+                      className="nav-links-link-tag"
+                      replace={false}
+                      to="/openchecks"
+                    >
+                      <a
+                        className="nav-links-link-tag"
+                        href="/openchecks"
+                        onClick={[Function]}
+                      >
+                        Open Checks
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-links-li"
+                  >
+                    <Link
+                      className="nav-links-link-tag"
+                      replace={false}
+                      to="/closedchecks"
+                    >
+                      <a
+                        className="nav-links-link-tag"
+                        href="/closedchecks"
+                        onClick={[Function]}
+                      >
+                        Closed Checks
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </section>
+            </aside>
+            <div
+              id="container2"
+            >
+              <Route
+                component={[Function]}
+                exact={true}
+                key="0"
+                path="/"
+              >
+                <main
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <HomePage>
+                    <section
+                      id="homepage-container"
+                    >
+                      <section
+                        id="homepage-information-container"
+                      >
+                        <h1
+                          id="homepage-title"
+                        >
+                          The Greasy Spoon
+                        </h1>
+                        <h2
+                          id="homepage-welcome"
+                        >
+                          Welcome
+                        </h2>
+                        <p
+                          id="homepage-text"
+                        >
+                          We will be placing orders for our valued customers using this application. The sidebar located on the left will help you to easily navigate the app.  The Tables link will show you which tables are are available to open a check against. Click on the Open Checks and Closed Checks links to view open and closed checks. Happy serving!
+                        </p>
+                        <div
+                          id="get-started-button-container"
+                        >
+                          <Link
+                            id="get-started-button-link-tag"
+                            replace={false}
+                            to="/tables"
+                          >
+                            <a
+                              href="/tables"
+                              id="get-started-button-link-tag"
+                              onClick={[Function]}
+                            >
+                              <button
+                                id="get-started-button"
+                              >
+                                GET STARTED
+                              </button>
+                            </a>
+                          </Link>
+                        </div>
+                      </section>
+                    </section>
+                  </HomePage>
+                </main>
+              </Route>
+              <Route
+                component={[Function]}
+                key="1"
+                path="/tables"
+              />
+              <Route
+                component={[Function]}
+                key="2"
+                path="/currentcheck"
+              />
+              <Route
+                component={[Function]}
+                key="3"
+                path="/openchecks"
+              />
+              <Route
+                component={[Function]}
+                key="4"
+                path="/closedchecks"
+              />
+            </div>
+          </section>
+        </Router>
+      </BrowserRouter>
+    </HomeScreen>
+  </div>
+</App>
+`;
