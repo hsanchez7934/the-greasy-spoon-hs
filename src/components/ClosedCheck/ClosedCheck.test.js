@@ -1,7 +1,7 @@
 import React from 'react';
 import ClosedCheck from './ClosedCheck';
 import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom';
 import config from '../../tests/testSetup.js';
 import toJson from 'enzyme-to-json';
 import items from '../../testMockData/items.js';
@@ -77,7 +77,7 @@ describe(`ClosedCheck component unit tests`, () => {
   test(`should render div node with button child node`, () => {
     const div = wrapper.find('div');
     const button = div.find('button');
-    
+
     expect(div.exists()).toEqual(true);
     expect(div.type()).toEqual('div');
 

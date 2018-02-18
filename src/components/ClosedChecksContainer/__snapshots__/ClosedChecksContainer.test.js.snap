@@ -1,0 +1,523 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClosedChecksContainer unit tests should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ClosedChecksContainer
+    checks={
+        Array [
+            Object {
+              "closed": false,
+              "createdBy": "23037775-39f4-48fa-806a-908727b77957",
+              "dateCreated": "2018-02-13T02:26:08.268361Z",
+              "dateUpdated": "2018-02-13T03:01:10.865959Z",
+              "id": "6400dc63-857b-4c12-a1bd-469e4cccae12",
+              "tableId": "2644ece3-83dd-4deb-ae02-54f4df083e16",
+              "tax": null,
+              "tip": null,
+            },
+            Object {
+              "closed": false,
+              "createdBy": "23037775-39f4-48fa-806a-908727b77957",
+              "dateCreated": "2018-02-13T02:26:19.335022Z",
+              "dateUpdated": "2018-02-13T03:01:01.897597Z",
+              "id": "ab7a931f-2d77-4d87-b09a-737d196d54f6",
+              "tableId": "51f719e1-830e-40bb-9c1a-493ccc13cbc0",
+              "tax": null,
+              "tip": null,
+            },
+            Object {
+              "closed": true,
+              "createdBy": "23037775-39f4-48fa-806a-908727b77957",
+              "dateCreated": "2018-02-13T02:55:50.871818Z",
+              "dateUpdated": "2018-02-13T02:56:03.891757Z",
+              "id": "f2bf62e8-5dee-4609-b695-0c273318fb79",
+              "tableId": "f5a3d871-1548-4be5-9f5a-e9a6e2011187",
+              "tax": 4.6,
+              "tip": 11.178,
+            },
+          ]
+    }
+    fetchCheckById={[Function]}
+    fetchChecks={[Function]}
+    fetchTables={[Function]}
+    tables={
+        Array [
+            Object {
+              "id": "2644ece3-83dd-4deb-ae02-54f4df083e16",
+              "number": 1,
+            },
+            Object {
+              "id": "c482731d-19a4-4d1f-90ab-e4dc4ac7d28d",
+              "number": 2,
+            },
+            Object {
+              "id": "51f719e1-830e-40bb-9c1a-493ccc13cbc0",
+              "number": 3,
+            },
+            Object {
+              "id": "56fe84ff-0655-4972-b2b0-b097e0a26ca1",
+              "number": 4,
+            },
+            Object {
+              "id": "f5a3d871-1548-4be5-9f5a-e9a6e2011187",
+              "number": 5,
+            },
+            Object {
+              "id": "cb336b2a-a16f-4734-8e62-f165d5a2ac03",
+              "number": 6,
+            },
+            Object {
+              "id": "5d6e6290-a0bb-4aa9-ba3d-9071e5a65a93",
+              "number": 7,
+            },
+            Object {
+              "id": "b0672e44-b959-4f09-ad7e-6f53a386d815",
+              "number": 8,
+            },
+            Object {
+              "id": "4cf15df2-c1bf-435f-8e8b-ad6aba48937c",
+              "number": 9,
+            },
+            Object {
+              "id": "31ccc746-4ade-43ea-add1-3dba513feb85",
+              "number": 10,
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        undefined,
+        undefined,
+        <article
+          className="closed-checks"
+          id="f2bf62e8-5dee-4609-b695-0c273318fb79"
+>
+          <div
+                    className="closed-check-top"
+          >
+                    <p
+                              className="closed-check-date"
+                    >
+                              Monday, February 12th 2018, 7:55:50 pm
+                    </p>
+                    <h1
+                              className="closed-check-table-number"
+                    >
+                              Table 
+                              5
+                    </h1>
+          </div>
+          <div
+                    className="closed-check-bottom"
+          >
+                    <Link
+                              className="see-details-button-link-tag"
+                              replace={false}
+                              to="/currentcheck"
+                    >
+                              <button
+                                        className="see-details-button"
+                                        onClick={[Function]}
+                              >
+                                        See Details
+                              </button>
+                    </Link>
+          </div>
+</article>,
+      ],
+      "id": "closedchecks-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      undefined,
+      undefined,
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="closed-check-top"
+>
+              <p
+                            className="closed-check-date"
+              >
+                            Monday, February 12th 2018, 7:55:50 pm
+              </p>
+              <h1
+                            className="closed-check-table-number"
+              >
+                            Table 
+                            5
+              </h1>
+</div>,
+            <div
+              className="closed-check-bottom"
+>
+              <Link
+                            className="see-details-button-link-tag"
+                            replace={false}
+                            to="/currentcheck"
+              >
+                            <button
+                                          className="see-details-button"
+                                          onClick={[Function]}
+                            >
+                                          See Details
+                            </button>
+              </Link>
+</div>,
+          ],
+          "className": "closed-checks",
+          "id": "f2bf62e8-5dee-4609-b695-0c273318fb79",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p
+                  className="closed-check-date"
+>
+                  Monday, February 12th 2018, 7:55:50 pm
+</p>,
+                <h1
+                  className="closed-check-table-number"
+>
+                  Table 
+                  5
+</h1>,
+              ],
+              "className": "closed-check-top",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Monday, February 12th 2018, 7:55:50 pm",
+                  "className": "closed-check-date",
+                },
+                "ref": null,
+                "rendered": "Monday, February 12th 2018, 7:55:50 pm",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Table ",
+                    5,
+                  ],
+                  "className": "closed-check-table-number",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Table ",
+                  5,
+                ],
+                "type": "h1",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="see-details-button-link-tag"
+                replace={false}
+                to="/currentcheck"
+>
+                <button
+                                className="see-details-button"
+                                onClick={[Function]}
+                >
+                                See Details
+                </button>
+</Link>,
+              "className": "closed-check-bottom",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <button
+                  className="see-details-button"
+                  onClick={[Function]}
+>
+                  See Details
+</button>,
+                "className": "see-details-button-link-tag",
+                "replace": false,
+                "to": "/currentcheck",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "See Details",
+                  "className": "see-details-button",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "See Details",
+                "type": "button",
+              },
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": "article",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          undefined,
+          undefined,
+          <article
+            className="closed-checks"
+            id="f2bf62e8-5dee-4609-b695-0c273318fb79"
+>
+            <div
+                        className="closed-check-top"
+            >
+                        <p
+                                    className="closed-check-date"
+                        >
+                                    Monday, February 12th 2018, 7:55:50 pm
+                        </p>
+                        <h1
+                                    className="closed-check-table-number"
+                        >
+                                    Table 
+                                    5
+                        </h1>
+            </div>
+            <div
+                        className="closed-check-bottom"
+            >
+                        <Link
+                                    className="see-details-button-link-tag"
+                                    replace={false}
+                                    to="/currentcheck"
+                        >
+                                    <button
+                                                className="see-details-button"
+                                                onClick={[Function]}
+                                    >
+                                                See Details
+                                    </button>
+                        </Link>
+            </div>
+</article>,
+        ],
+        "id": "closedchecks-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        undefined,
+        undefined,
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="closed-check-top"
+>
+                <p
+                                className="closed-check-date"
+                >
+                                Monday, February 12th 2018, 7:55:50 pm
+                </p>
+                <h1
+                                className="closed-check-table-number"
+                >
+                                Table 
+                                5
+                </h1>
+</div>,
+              <div
+                className="closed-check-bottom"
+>
+                <Link
+                                className="see-details-button-link-tag"
+                                replace={false}
+                                to="/currentcheck"
+                >
+                                <button
+                                                className="see-details-button"
+                                                onClick={[Function]}
+                                >
+                                                See Details
+                                </button>
+                </Link>
+</div>,
+            ],
+            "className": "closed-checks",
+            "id": "f2bf62e8-5dee-4609-b695-0c273318fb79",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="closed-check-date"
+>
+                    Monday, February 12th 2018, 7:55:50 pm
+</p>,
+                  <h1
+                    className="closed-check-table-number"
+>
+                    Table 
+                    5
+</h1>,
+                ],
+                "className": "closed-check-top",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Monday, February 12th 2018, 7:55:50 pm",
+                    "className": "closed-check-date",
+                  },
+                  "ref": null,
+                  "rendered": "Monday, February 12th 2018, 7:55:50 pm",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Table ",
+                      5,
+                    ],
+                    "className": "closed-check-table-number",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Table ",
+                    5,
+                  ],
+                  "type": "h1",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="see-details-button-link-tag"
+                  replace={false}
+                  to="/currentcheck"
+>
+                  <button
+                                    className="see-details-button"
+                                    onClick={[Function]}
+                  >
+                                    See Details
+                  </button>
+</Link>,
+                "className": "closed-check-bottom",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <button
+                    className="see-details-button"
+                    onClick={[Function]}
+>
+                    See Details
+</button>,
+                  "className": "see-details-button-link-tag",
+                  "replace": false,
+                  "to": "/currentcheck",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "See Details",
+                    "className": "see-details-button",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "See Details",
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              "type": "div",
+            },
+          ],
+          "type": "article",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

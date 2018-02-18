@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class ClosedChecksContainer extends Component {
+export class ClosedChecksContainer extends Component {
 
   componentDidMount() {
     this.props.fetchTables();
