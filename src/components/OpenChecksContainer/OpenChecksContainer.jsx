@@ -30,7 +30,6 @@ class OpenChecksContainer extends Component {
             </h1>
           </div>
           <div className='open-check-bottom'>
-            <p>OPEN</p>
             <Link to='/currentcheck' className='see-details-button-link-tag'>
               <button
                 onClick={() => this.props.fetchCheckById(check.id)}
